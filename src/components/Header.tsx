@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
-import {
-  Search,
-  Bell,
-  CheckCircle2,
-  ChevronDown,
-  Layers,
-  Sparkles,
-  ExternalLink,
-  Shield,
-  User,
-  HeartHandshake,
-  Compass,
-} from 'lucide-react';
+import { Search, Bell, ChevronDown, Grid2X2, HelpCircle, Settings, User, HeartHandshake, Menu } from 'lucide-react';
 import { UserPersona } from '../types/pqvt';
+
+const ENAP_LOGO_URL = 'https://upload.wikimedia.org/wikipedia/commons/8/8e/Logo-enap.png';
 
 interface HeaderProps {
   currentPersona: UserPersona;
@@ -23,174 +13,100 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({
-  currentPersona,
-  onSelectPersona,
-  onOpenSearch,
-  onOpenSharePointSpecs,
-  registeredCount,
+  currentPersona, onSelectPersona, onOpenSearch, onOpenSharePointSpecs, registeredCount,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showPersonaMenu, setShowPersonaMenu] = useState(false);
-
-  const notifications = [
-    {
-      id: 'n1',
-      title: 'Nova Roda de Conversa aberta',
-      desc: 'Inscrições para debate sobre foco no PGD em 14/10.',
-      time: 'Há 2 horas',
-      unread: true,
-    },
-    {
-      id: 'n2',
-      title: 'Guia DOC-09 atualizado',
-      desc: 'Revisão das orientações de pausas ativas e ergonomia.',
-      time: 'Ontem',
-      unread: true,
-    },
-    {
-      id: 'n3',
-      title: 'CoP Diversidade',
-      desc: 'Encontro quinzenal agendado para esta quinta-feira.',
-      time: 'Há 2 dias',
-      unread: false,
-    },
-  ];
+  const [showAppMenu, setShowAppMenu] = useState(false);
 
   const personaLabels: Record<UserPersona, { label: string; tag: string; tip: string }> = {
-    servidor: {
-      label: 'Visão do Servidor',
-      tag: 'Participação & Cuidado',
-      tip: 'Acesso rápido a inscrições, acolhimento, guias práticos e serviços.',
-    },
-    gestor: {
-      label: 'Visão da Liderança',
-      tag: 'Clima & Indicadores',
-      tip: 'Foco no acompanhamento de entregas, bem-estar da equipe e dados.',
-    },
-    equipe_pqvt: {
-      label: 'Equipe PQVT / COGEM',
-      tag: 'Gestão do Programa',
-      tip: 'Monitoramento do ACT-06, listas de inscritos e ciclo de melhoria.',
-    },
+    servidor: { label: 'Visão do servidor', tag: 'Participação', tip: 'Atividades, serviços, guias e acolhimento.' },
+    gestor: { label: 'Visão da liderança', tag: 'Clima & indicadores', tip: 'Acompanhamento de entregas e dados.' },
+    equipe_pqvt: { label: 'Equipe PQVT / COGEM', tag: 'Gestão do programa', tip: 'ACT-06, inscrições e melhoria contínua.' },
   };
 
+  const notifications = [
+    { id: 'n1', title: 'Nova atividade disponível', desc: 'Confira a agenda do PQVT e as próximas inscrições.', time: 'Atualização', unread: true },
+    { id: 'n2', title: 'Guia DOC-09', desc: 'Acesse as orientações institucionais sobre saúde mental no teletrabalho.', time: 'Atualização', unread: true },
+    { id: 'n3', title: 'CoP Diversidade', desc: 'Consulte a comunidade e seus próximos encontros.', time: 'Atualização', unread: false },
+  ];
+
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E9E5EC] transition-all">
-      {/* Intranet System Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
-          
-          {/* Brand & Breadcrumb */}
-          <div className="flex items-center gap-3 md:gap-5 min-w-0">
-            {/* Enap Official Badge / Monogram Lockup */}
-            <a
-              href="#inicio"
-              className="flex items-center gap-2.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6D4AFF] rounded-lg p-1"
-              aria-label="Portal PQVT Enap - Página inicial"
-            >
-              <div className="w-9 h-9 rounded-lg bg-[#17151D] flex items-center justify-center text-white font-bold text-base tracking-tight shadow-xs group-hover:bg-[#6D4AFF] transition-colors">
-                <span className="font-extrabold text-[15px] tracking-tighter">enap</span>
-              </div>
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="font-bold text-sm tracking-tight text-[#17151D]">COGEM Conecta</span>
-                  <span className="text-[10px] font-semibold uppercase tracking-wider text-[#6D4AFF] bg-[#F0ECFF] px-1.5 py-0.2 rounded">
-                    PQVT
-                  </span>
+    <header className="sticky top-0 z-50 bg-white border-b border-[#E1DFE5] shadow-[0_1px_4px_rgba(0,0,0,0.06)]">
+      <div className="bg-[#1f1f1f] text-white">
+        <div className="mx-auto flex h-12 max-w-[1440px] items-center gap-2 px-4 lg:px-6">
+          <div className="relative">
+            <button onClick={() => setShowAppMenu((open) => !open)} className="flex h-9 w-9 items-center justify-center rounded-sm hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="Abrir iniciador de aplicativos" aria-expanded={showAppMenu}>
+              <Grid2X2 className="h-5 w-5" />
+            </button>
+            {showAppMenu && (
+              <>
+                <button className="fixed inset-0 z-10 cursor-default" onClick={() => setShowAppMenu(false)} aria-label="Fechar menu" />
+                <div className="absolute left-0 top-11 z-20 w-72 rounded-md border border-[#D9D6DE] bg-white p-3 text-[#17151D] shadow-2xl">
+                  <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#6F6B75]">Aplicativos</div>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      ['Início', 'Página inicial da intranet'],
+                      ['COGEM Conecta', 'Workspace de gestão'],
+                      ['PQVT', 'Qualidade de vida no trabalho'],
+                      ['Documentos', 'Conhecimento e arquivos'],
+                    ].map(([title, description]) => (
+                      <button key={title} onClick={() => setShowAppMenu(false)} className="rounded-md border border-[#ECE9EF] p-3 text-left hover:bg-[#F7F6F8]">
+                        <span className="block text-xs font-semibold">{title}</span>
+                        <span className="mt-1 block text-[10px] leading-snug text-[#77717F]">{description}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <span className="text-[11px] text-[#77717F] hidden sm:inline leading-none">
-                  Gestão Estratégica & Modernização
-                </span>
-              </div>
-            </a>
+              </>
+            )}
+          </div>
+          <div className="hidden h-5 w-px bg-white/20 sm:block" />
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="text-sm font-semibold tracking-tight">Enap</span>
+            <span className="hidden text-xs text-white/60 md:inline">Microsoft 365</span>
+          </div>
+          <div className="ml-auto flex items-center gap-1">
+            <button onClick={onOpenSearch} className="hidden items-center gap-2 rounded-sm px-3 py-1.5 text-xs text-white/80 hover:bg-white/10 md:flex" aria-label="Pesquisar">
+              <Search className="h-4 w-4" /><span>Pesquisar</span>
+            </button>
+            <button className="hidden h-8 w-8 items-center justify-center rounded-sm hover:bg-white/10 sm:flex" aria-label="Ajuda"><HelpCircle className="h-4 w-4" /></button>
+            <button className="hidden h-8 w-8 items-center justify-center rounded-sm hover:bg-white/10 sm:flex" aria-label="Configurações" onClick={onOpenSharePointSpecs}><Settings className="h-4 w-4" /></button>
+            <button className="h-8 w-8 overflow-hidden rounded-full bg-[#6D4AFF] text-[10px] font-bold ring-2 ring-white/10" aria-label="Perfil do usuário">DM</button>
+          </div>
+        </div>
+      </div>
 
-            {/* Breadcrumb - SharePoint context */}
-            <div className="hidden lg:flex items-center text-xs text-[#77717F] border-l border-[#E9E5EC] pl-4">
-              <span>COGEM Conecta</span>
-              <span className="mx-1.5 text-[#A09BAC]">/</span>
-              <span>Pessoas & Comunidades</span>
-              <span className="mx-1.5 text-[#A09BAC]">/</span>
-              <span>Eixo 2</span>
-              <span className="mx-1.5 text-[#A09BAC]">/</span>
-              <span className="font-medium text-[#17151D]">PQVT</span>
+      <div className="bg-white">
+        <div className="mx-auto flex min-h-[68px] max-w-[1440px] items-center gap-4 px-4 lg:px-6">
+          <a href="#inicio" className="flex min-w-0 items-center gap-4 rounded-sm py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6D4AFF]" aria-label="PQVT Enap - Página inicial">
+            <div className="flex h-10 w-[86px] shrink-0 items-center overflow-hidden">
+              <img src={ENAP_LOGO_URL} alt="Enap" className="max-h-10 w-auto max-w-[86px] object-contain object-left" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
             </div>
-          </div>
+            <div className="hidden min-w-0 border-l border-[#E5E2E8] pl-4 sm:block">
+              <div className="flex items-center gap-2">
+                <span className="truncate text-[15px] font-semibold text-[#201E24]">Programa de Qualidade de Vida no Trabalho</span>
+                <span className="rounded-sm bg-[#F0ECFF] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-[#5B3DE0]">PQVT</span>
+              </div>
+              <span className="mt-0.5 block text-[11px] text-[#77717F]">COGEM · Enap</span>
+            </div>
+          </a>
 
-          {/* Center: Global Search trigger */}
-          <div className="flex-1 max-w-md mx-2 hidden md:block">
-            <button
-              onClick={onOpenSearch}
-              className="w-full flex items-center justify-between px-3.5 py-2 text-xs text-[#77717F] bg-[#F7F6F8] hover:bg-[#EFECEF] border border-[#E9E5EC] rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#6D4AFF]"
-              aria-label="Abrir pesquisa global do PQVT"
-            >
-              <span className="flex items-center gap-2 truncate">
-                <Search className="w-3.5 h-3.5 text-[#77717F]" />
-                <span className="truncate">Pesquisar atividades, serviços, notícias e guias...</span>
-              </span>
-              <kbd className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono text-[#77717F] bg-white border border-[#E9E5EC] rounded">
-                Ctrl K
-              </kbd>
-            </button>
-          </div>
-
-          {/* Right Action Tools: Persona, Notifications, SharePoint Spec, Profile */}
-          <div className="flex items-center gap-2 sm:gap-3">
-            {/* Mobile search button */}
-            <button
-              onClick={onOpenSearch}
-              className="md:hidden p-2 text-[#77717F] hover:text-[#17151D] hover:bg-[#F7F6F8] rounded-lg transition-colors"
-              aria-label="Pesquisar"
-            >
-              <Search className="w-5 h-5" />
-            </button>
-
-            {/* Persona Switcher Menu */}
+          <div className="ml-auto flex items-center gap-1 sm:gap-2">
+            <button onClick={onOpenSearch} className="flex h-9 w-9 items-center justify-center rounded-sm text-[#605B66] hover:bg-[#F5F3F7] md:hidden" aria-label="Pesquisar"><Search className="h-4 w-4" /></button>
             <div className="relative">
-              <button
-                onClick={() => setShowPersonaMenu(!showPersonaMenu)}
-                className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-[#17151D] bg-[#F7F6F8] hover:bg-[#EFECEF] border border-[#E9E5EC] rounded-lg transition-colors"
-                aria-expanded={showPersonaMenu}
-                aria-label="Alternar perfil de visualização"
-              >
-                <User className="w-3.5 h-3.5 text-[#6D4AFF]" />
-                <span className="hidden sm:inline">{personaLabels[currentPersona].label}</span>
-                <ChevronDown className="w-3 h-3 text-[#77717F]" />
+              <button onClick={() => setShowPersonaMenu((open) => !open)} className="hidden items-center gap-2 rounded-sm border border-[#E3E0E7] px-3 py-2 text-xs font-medium text-[#302D35] hover:bg-[#F7F6F8] sm:flex" aria-expanded={showPersonaMenu}>
+                <User className="h-3.5 w-3.5 text-[#6D4AFF]" /><span>{personaLabels[currentPersona].label}</span><ChevronDown className="h-3 w-3 text-[#77717F]" />
               </button>
-
               {showPersonaMenu && (
                 <>
-                  <div
-                    className="fixed inset-0 z-10"
-                    onClick={() => setShowPersonaMenu(false)}
-                  />
-                  <div className="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-lg border border-[#E9E5EC] p-2 z-20 animate-in fade-in zoom-in-95">
-                    <div className="px-3 py-2 border-b border-[#E9E5EC] mb-1">
-                      <p className="text-[11px] font-semibold uppercase tracking-wider text-[#77717F]">
-                        Perfil de Visualização
-                      </p>
-                      <p className="text-xs text-[#17151D]">
-                        Adapta destaques contextuais na página:
-                      </p>
-                    </div>
-
-                    {(['servidor', 'gestor', 'equipe_pqvt'] as UserPersona[]).map((p) => (
-                      <button
-                        key={p}
-                        onClick={() => {
-                          onSelectPersona(p);
-                          setShowPersonaMenu(false);
-                        }}
-                        className={`w-full text-left p-2.5 rounded-lg text-xs transition-colors flex flex-col gap-0.5 ${
-                          currentPersona === p
-                            ? 'bg-[#F0ECFF] text-[#6D4AFF] font-medium'
-                            : 'hover:bg-[#F7F6F8] text-[#17151D]'
-                        }`}
-                      >
-                        <div className="flex items-center justify-between">
-                          <span className="font-semibold">{personaLabels[p].label}</span>
-                          <span className="text-[10px] text-[#77717F]">{personaLabels[p].tag}</span>
-                        </div>
-                        <span className="text-[11px] text-[#77717F]">{personaLabels[p].tip}</span>
+                  <button className="fixed inset-0 z-10 cursor-default" onClick={() => setShowPersonaMenu(false)} aria-label="Fechar menu" />
+                  <div className="absolute right-0 top-11 z-20 w-72 rounded-md border border-[#D9D6DE] bg-white p-2 shadow-xl">
+                    <div className="border-b border-[#ECE9EF] px-3 py-2"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#77717F]">Perfil de visualização</p></div>
+                    {(['servidor', 'gestor', 'equipe_pqvt'] as UserPersona[]).map((persona) => (
+                      <button key={persona} onClick={() => { onSelectPersona(persona); setShowPersonaMenu(false); }} className={`mt-1 w-full rounded-sm p-3 text-left ${currentPersona === persona ? 'bg-[#F0ECFF] text-[#5B3DE0]' : 'hover:bg-[#F7F6F8]'}`}>
+                        <div className="flex items-center justify-between gap-2"><span className="text-xs font-semibold">{personaLabels[persona].label}</span><span className="text-[9px] uppercase tracking-wider text-[#77717F]">{personaLabels[persona].tag}</span></div>
+                        <span className="mt-1 block text-[11px] leading-snug text-[#77717F]">{personaLabels[persona].tip}</span>
                       </button>
                     ))}
                   </div>
@@ -198,81 +114,32 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
 
-            {/* SharePoint Spec Inspector Button */}
-            <button
-              onClick={onOpenSharePointSpecs}
-              className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 text-xs text-[#77717F] hover:text-[#17151D] hover:bg-[#F7F6F8] border border-transparent hover:border-[#E9E5EC] rounded-lg transition-colors"
-              title="Ver mapeamento para Microsoft Lists, Power Automate e Power Apps"
-            >
-              <Layers className="w-3.5 h-3.5 text-[#27C7C9]" />
-              <span className="text-[11px]">Arquitetura M365</span>
-            </button>
-
-            {/* Notifications Bell */}
             <div className="relative">
-              <button
-                onClick={() => setShowNotifications(!showNotifications)}
-                className="relative p-2 text-[#77717F] hover:text-[#17151D] hover:bg-[#F7F6F8] rounded-lg transition-colors"
-                aria-label="Notificações do PQVT"
-              >
-                <Bell className="w-4 h-4" />
-                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-[#6D4AFF] rounded-full" />
+              <button onClick={() => setShowNotifications((open) => !open)} className="relative flex h-9 w-9 items-center justify-center rounded-sm text-[#605B66] hover:bg-[#F5F3F7]" aria-label="Notificações" aria-expanded={showNotifications}>
+                <Bell className="h-4 w-4" /><span className="absolute right-2 top-2 h-1.5 w-1.5 rounded-full bg-[#6D4AFF]" />
               </button>
-
               {showNotifications && (
                 <>
-                  <div
-                    className="fixed inset-0 z-10"
-                    onClick={() => setShowNotifications(false)}
-                  />
-                  <div className="absolute right-0 mt-2 w-80 sm:w-88 bg-white rounded-xl shadow-xl border border-[#E9E5EC] p-3 z-20">
-                    <div className="flex items-center justify-between pb-2 mb-2 border-b border-[#E9E5EC]">
-                      <span className="text-xs font-semibold text-[#17151D]">Atualizações de QVT</span>
-                      <span className="text-[11px] text-[#6D4AFF] hover:underline cursor-pointer">
-                        Marcar como lidas
-                      </span>
-                    </div>
-                    <div className="space-y-2">
-                      {notifications.map((n) => (
-                        <div
-                          key={n.id}
-                          className={`p-2.5 rounded-lg text-xs transition-colors ${
-                            n.unread ? 'bg-[#F0ECFF]/50 border-l-2 border-[#6D4AFF]' : 'bg-[#F7F6F8]'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <span className="font-semibold text-[#17151D]">{n.title}</span>
-                            <span className="text-[10px] text-[#77717F]">{n.time}</span>
-                          </div>
-                          <p className="text-[11px] text-[#77717F] mt-1">{n.desc}</p>
+                  <button className="fixed inset-0 z-10 cursor-default" onClick={() => setShowNotifications(false)} aria-label="Fechar notificações" />
+                  <div className="absolute right-0 top-11 z-20 w-[340px] rounded-md border border-[#D9D6DE] bg-white p-3 shadow-xl">
+                    <div className="flex items-center justify-between border-b border-[#ECE9EF] pb-2"><span className="text-xs font-semibold">Atualizações do PQVT</span><span className="text-[10px] text-[#77717F]">{registeredCount} inscrição(ões)</span></div>
+                    <div className="mt-2 space-y-1.5">
+                      {notifications.map((notification) => (
+                        <div key={notification.id} className={`rounded-sm p-3 ${notification.unread ? 'border-l-2 border-[#6D4AFF] bg-[#F8F6FF]' : 'bg-[#F7F6F8]'}`}>
+                          <div className="flex items-start justify-between gap-2"><span className="text-xs font-semibold">{notification.title}</span><span className="text-[9px] text-[#77717F]">{notification.time}</span></div>
+                          <p className="mt-1 text-[11px] leading-snug text-[#77717F]">{notification.desc}</p>
                         </div>
                       ))}
-                    </div>
-                    <div className="mt-3 pt-2 border-t border-[#E9E5EC] text-center">
-                      <a
-                        href="#noticias"
-                        onClick={() => setShowNotifications(false)}
-                        className="text-xs font-medium text-[#6D4AFF] hover:underline"
-                      >
-                        Ver todas as notícias e comunicados →
-                      </a>
                     </div>
                   </div>
                 </>
               )}
             </div>
 
-            {/* User Profile Pill */}
-            <div className="flex items-center gap-2 pl-1 sm:pl-2 border-l border-[#E9E5EC]">
-              <div className="w-8 h-8 rounded-full bg-[#17151D] text-white flex items-center justify-center text-xs font-bold ring-2 ring-[#F0ECFF]">
-                DM
-              </div>
-              <div className="hidden xl:flex flex-col text-left">
-                <span className="text-xs font-semibold text-[#17151D] leading-tight">Davison Menezes</span>
-                <span className="text-[10px] text-[#77717F] leading-tight">Servidor Enap</span>
-              </div>
-            </div>
-
+            <a href="#servicos" className="hidden items-center gap-1 rounded-sm px-2 py-2 text-xs font-medium text-[#4E4A54] hover:bg-[#F5F3F7] lg:flex">
+              <HeartHandshake className="h-4 w-4 text-[#6D4AFF]" /><span>Serviços</span>
+            </a>
+            <button className="flex h-9 w-9 items-center justify-center rounded-sm text-[#605B66] hover:bg-[#F5F3F7] sm:hidden" aria-label="Pesquisar" onClick={onOpenSearch}><Menu className="h-4 w-4" /></button>
           </div>
         </div>
       </div>
