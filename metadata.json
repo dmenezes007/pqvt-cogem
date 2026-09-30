@@ -1,0 +1,6 @@
+{
+  "name": "PQVT — Portal de Qualidade de Vida no Trabalho | COGEM Conecta · Enap",
+  "description": "Portal do Programa de Qualidade de Vida no Trabalho (PQVT) integrado ao COGEM-Conecta da Enap. Bem-estar, saúde e experiências que tornam o trabalho sustentável.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
