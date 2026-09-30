@@ -14,7 +14,7 @@ const links = [
 
 const connections = [
   {
-    label: 'Pessoas e comunidades',
+    label: 'Pessoas e Comunidades',
     description: 'Encontre espaços de troca, apoio e participação relacionados ao programa.',
     cta: 'Explorar comunidades',
     icon: Users2,
@@ -22,7 +22,7 @@ const connections = [
     tone: 'purple',
   },
   {
-    label: 'Acolhimento e escuta',
+    label: 'Acolhimento e Escuta',
     description: 'Canais institucionais para orientação, solicitação, sugestão e apoio.',
     cta: 'Acessar serviços',
     icon: HeartHandshake,
