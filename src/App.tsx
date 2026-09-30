@@ -187,10 +187,7 @@ export default function App() {
               </section>
             </div>
 
-            <IntranetSidebar
-              onNavigate={scrollToSection}
-              onOpenSharePointSpecs={() => setIsSharePointModalOpen(true)}
-            />
+            <IntranetSidebar onNavigate={scrollToSection} />
           </div>
 
           <div className="mt-5 space-y-5">
