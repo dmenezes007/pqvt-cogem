@@ -254,65 +254,6 @@ export default function App() {
         </div>
       </main>
 
-        {/* 5. Acontece Agora (ACT-06 — Plano Anual PQVT 2026) */}
-        <ActiveInitiativeSection
-          onOpenDoc09={() => setSelectedDoc(FEATURED_DOC09)}
-          onOpenActionDetail={() => setIsActionDetailOpen(true)}
-        />
-
-        {/* 6. Próximas Atividades (Agenda SharePoint) */}
-        <ActivitiesSection
-          activities={
-            selectedPillar
-              ? activitiesList.filter((a) => a.pillar === selectedPillar)
-              : activitiesList
-          }
-          onRegister={handleRegisterActivity}
-          onUnregister={handleUnregisterActivity}
-        />
-
-        {/* 7. Serviços para Você (Canais e Acolhimento) */}
-        <ServicesSection
-          onSelectService={(srv) => setSelectedService(srv)}
-        />
-
-        {/* 8. Notícias e Histórias (Comunicação Editorial) */}
-        <NewsSection
-          onOpenArticle={(article) => setSelectedArticle(article)}
-        />
-
-        {/* 9. Guias e Conhecimento (Destaque DOC-09) */}
-        <KnowledgeSection
-          onOpenDoc={(doc) => setSelectedDoc(doc)}
-        />
-
-        {/* 10. Comunidade de Prática (CoP Diversidade & Clima) */}
-        <CommunitySection
-          onJoinCommunity={() => setIsJoinCommunityOpen(true)}
-          onOpenDoc15={() => {
-            const doc15 = OTHER_KNOWLEDGE_DOCS.find((d) => d.code === 'DOC-15');
-            if (doc15) setSelectedDoc(doc15);
-          }}
-        />
-
-        {/* 11. Como o PQVT é Construído (Ciclo Contínuo) */}
-        <ContinuousCycleSection />
-
-        {/* 12. Indicadores Institucionais */}
-        <IndicatorsSection />
-
-        {/* 13. Sobre o PQVT (Eixo 2, EX, DEI, PGD) */}
-        <AboutSection />
-
-        {/* 14. CTA Final */}
-        <CtaSection
-          onNavigateToActivities={() => scrollToSection('atividades')}
-          onNavigateToServices={() => scrollToSection('servicos')}
-          onJoinCommunity={() => setIsJoinCommunityOpen(true)}
-        />
-
-      </main>
-
       {/* 15. Institutional Footer */}
       <Footer
         onOpenSharePointSpecs={() => setIsSharePointModalOpen(true)}
