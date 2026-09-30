@@ -1,17 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Calendar,
-  Layers,
-  FileText,
-  Users,
-  Compass,
-  BarChart3,
-  BookOpen,
-  Info,
-  Menu,
-  X,
-  Ticket,
-} from 'lucide-react';
+import { Home, CalendarDays, HeartHandshake, Newspaper, BookOpen, Users, BarChart3, Info, Menu, X, Ticket, ChevronDown } from 'lucide-react';
 
 interface NavigationProps {
   activeSection: string;
@@ -20,25 +8,19 @@ interface NavigationProps {
   onOpenMyRegistrations: () => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({
-  activeSection,
-  onNavigate,
-  registeredCount,
-  onOpenMyRegistrations,
-}) => {
+export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigate, registeredCount, onOpenMyRegistrations }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'inicio', label: 'Início' },
-    { id: 'acontece-agora', label: 'Acontece Agora' },
-    { id: 'atividades', label: 'Atividades', badge: 'Agenda' },
-    { id: 'servicos', label: 'Serviços' },
-    { id: 'noticias', label: 'Notícias' },
-    { id: 'guias', label: 'Guias & DOC-09' },
-    { id: 'comunidade', label: 'Comunidade CoP' },
-    { id: 'ciclo', label: 'Ciclo PQVT' },
-    { id: 'indicadores', label: 'Indicadores' },
-    { id: 'sobre', label: 'Sobre o PQVT' },
+    { id: 'inicio', label: 'Página inicial', icon: Home },
+    { id: 'acontece-agora', label: 'Plano PQVT 2026', icon: BarChart3 },
+    { id: 'atividades', label: 'Atividades', icon: CalendarDays },
+    { id: 'servicos', label: 'Serviços', icon: HeartHandshake },
+    { id: 'noticias', label: 'Notícias', icon: Newspaper },
+    { id: 'guias', label: 'Documentos', icon: BookOpen },
+    { id: 'comunidade', label: 'Comunidades', icon: Users },
+    { id: 'indicadores', label: 'Indicadores', icon: BarChart3 },
+    { id: 'sobre', label: 'Sobre o PQVT', icon: Info },
   ];
 
   const handleNavClick = (id: string) => {
@@ -47,91 +29,56 @@ export const Navigation: React.FC<NavigationProps> = ({
   };
 
   return (
-    <nav className="bg-white border-b border-[#E9E5EC] sticky top-16 z-30 shadow-2xs">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-12">
-          
-          {/* Desktop Navigation Items */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-2 overflow-x-auto no-scrollbar py-1">
+    <nav className="sticky top-[112px] z-40 border-b border-[#E1DFE5] bg-white" aria-label="Navegação do site PQVT">
+      <div className="mx-auto flex min-h-[48px] max-w-[1440px] items-center px-4 lg:px-6">
+        <div className="hidden min-w-0 flex-1 items-center overflow-x-auto md:flex no-scrollbar">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const active = activeSection === item.id;
+            return (
+              <button key={item.id} onClick={() => handleNavClick(item.id)}
+                className={`group relative flex h-12 shrink-0 items-center gap-2 border-b-2 px-3 text-[12px] font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#6D4AFF] ${active ? 'border-[#6D4AFF] bg-[#F8F6FF] text-[#5B3DE0]' : 'border-transparent text-[#5F5A65] hover:bg-[#F7F6F8] hover:text-[#17151D]'}`}
+                aria-current={active ? 'page' : undefined}>
+                <Icon className="h-3.5 w-3.5" />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="ml-auto flex shrink-0 items-center gap-2 pl-2">
+          <button onClick={onOpenMyRegistrations}
+            className={`flex h-9 items-center gap-1.5 rounded-sm border px-3 text-[11px] font-semibold transition-colors ${registeredCount > 0 ? 'border-[#B7E5D0] bg-[#F0FBF5] text-[#087F5B]' : 'border-[#E1DFE5] bg-white text-[#5F5A65] hover:bg-[#F7F6F8]'}`}>
+            <Ticket className="h-3.5 w-3.5" />
+            <span className="hidden lg:inline">Minhas inscrições</span>
+            {registeredCount > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-[#087F5B] px-1 text-[9px] text-white">{registeredCount}</span>}
+          </button>
+          <button onClick={() => setMobileMenuOpen((open) => !open)}
+            className="flex h-9 w-9 items-center justify-center rounded-sm border border-[#E1DFE5] text-[#5F5A65] hover:bg-[#F7F6F8] md:hidden"
+            aria-label="Abrir navegação" aria-expanded={mobileMenuOpen}>
+            {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
+      </div>
+
+      {mobileMenuOpen && (
+        <div className="border-t border-[#E1DFE5] bg-white px-4 pb-4 pt-2 shadow-lg md:hidden">
+          <div className="mb-2 flex items-center justify-between px-2">
+            <span className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#77717F]">Navegação do site</span>
+            <ChevronDown className="h-3.5 w-3.5 text-[#77717F]" />
+          </div>
+          <div className="grid grid-cols-1 gap-1">
             {navItems.map((item) => {
-              const isActive = activeSection === item.id;
+              const Icon = item.icon;
+              const active = activeSection === item.id;
               return (
-                <button
-                  key={item.id}
-                  onClick={() => handleNavClick(item.id)}
-                  className={`px-3 py-1.5 text-xs font-medium rounded-md whitespace-nowrap transition-colors flex items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6D4AFF] ${
-                    isActive
-                      ? 'text-[#6D4AFF] bg-[#F0ECFF] font-semibold'
-                      : 'text-[#77717F] hover:text-[#17151D] hover:bg-[#F7F6F8]'
-                  }`}
-                >
-                  <span>{item.label}</span>
-                  {item.badge && (
-                    <span className="text-[10px] px-1 py-0.2 bg-[#27C7C9]/20 text-[#0E7490] rounded font-medium">
-                      {item.badge}
-                    </span>
-                  )}
+                <button key={item.id} onClick={() => handleNavClick(item.id)}
+                  className={`flex items-center gap-3 rounded-sm px-3 py-2.5 text-left text-xs font-medium ${active ? 'bg-[#F0ECFF] text-[#5B3DE0]' : 'text-[#302D35] hover:bg-[#F7F6F8]'}`}>
+                  <Icon className="h-4 w-4" />{item.label}
                 </button>
               );
             })}
           </div>
-
-          {/* Quick Action: Minhas Inscrições */}
-          <div className="flex items-center gap-2">
-            <button
-              onClick={onOpenMyRegistrations}
-              className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-colors whitespace-nowrap ${
-                registeredCount > 0
-                  ? 'bg-[#ECFDF5] border-[#A7F3D0] text-[#059669] hover:bg-[#D1FAE5]'
-                  : 'bg-[#F7F6F8] border-[#E9E5EC] text-[#77717F] hover:text-[#17151D]'
-              }`}
-            >
-              <Ticket className="w-3.5 h-3.5" />
-              <span>Minhas Inscrições</span>
-              {registeredCount > 0 && (
-                <span className="w-4 h-4 rounded-full bg-[#059669] text-white text-[10px] font-bold flex items-center justify-center">
-                  {registeredCount}
-                </span>
-              )}
-            </button>
-
-            {/* Mobile Hamburger Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 text-[#77717F] hover:text-[#17151D] hover:bg-[#F7F6F8] rounded-lg transition-colors"
-              aria-label="Abrir menu de navegação"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-[#E9E5EC] px-4 pt-2 pb-4 space-y-1 shadow-lg animate-in slide-in-from-top duration-150">
-          <p className="text-[11px] font-semibold uppercase tracking-wider text-[#77717F] px-3 py-1">
-            Espaços do PQVT
-          </p>
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
-              className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between ${
-                activeSection === item.id
-                  ? 'bg-[#F0ECFF] text-[#6D4AFF] font-semibold'
-                  : 'text-[#17151D] hover:bg-[#F7F6F8]'
-              }`}
-            >
-              <span>{item.label}</span>
-              {item.badge && (
-                <span className="text-[10px] px-1.5 py-0.5 bg-[#27C7C9]/20 text-[#0E7490] rounded">
-                  {item.badge}
-                </span>
-              )}
-            </button>
-          ))}
         </div>
       )}
     </nav>
