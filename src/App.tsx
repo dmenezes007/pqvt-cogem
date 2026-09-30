@@ -13,6 +13,8 @@ import { ContinuousCycleSection } from './components/ContinuousCycleSection';
 import { IndicatorsSection } from './components/IndicatorsSection';
 import { AboutSection } from './components/AboutSection';
 import { CtaSection } from './components/CtaSection';
+import { IntranetSidebar } from './components/IntranetSidebar';
+import { IntranetRail } from './components/IntranetRail';
 import { Footer } from './components/Footer';
 import {
   SearchModal,
@@ -118,7 +120,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F6F8] text-[#17151D]">
+    <div className="sp-page min-h-screen flex flex-col text-[#17151D]">
       
       {/* 1. Intranet Global Header */}
       <Header
@@ -128,6 +130,8 @@ export default function App() {
         onOpenSharePointSpecs={() => setIsSharePointModalOpen(true)}
         registeredCount={registeredActivities.length}
       />
+
+      <IntranetRail onNavigate={scrollToSection} />
 
       {/* Persona Context Banner (Provides adapted perspective without clutter) */}
       {currentPersona !== 'servidor' && (
@@ -160,22 +164,95 @@ export default function App() {
         onOpenMyRegistrations={() => setIsMyRegistrationsOpen(true)}
       />
 
-      {/* Main Content Viewport */}
-      <main className="flex-1">
-        
-        {/* 3. Hero Editorial */}
-        <Hero
-          onExploreActivities={() => scrollToSection('atividades')}
-          onExploreAbout={() => scrollToSection('sobre')}
-          onOpenDoc09={() => setSelectedDoc(FEATURED_DOC09)}
-        />
+      {/* Main Content Viewport — SharePoint-style home canvas */}
+      <main className="sp-home flex-1 lg:pl-[60px]">
+        <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
+          <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
+            <div className="min-w-0 space-y-5">
+              <section className="sp-webpart">
+                <Hero
+                  onExploreActivities={() => scrollToSection('atividades')}
+                  onExploreAbout={() => scrollToSection('sobre')}
+                  onOpenDoc09={() => setSelectedDoc(FEATURED_DOC09)}
+                />
+              </section>
 
-        {/* 4. O PQVT em um Olhar (4 Pilares) */}
-        <PillarsSection
-          selectedPillar={selectedPillar}
-          onSelectPillar={setSelectedPillar}
-          onNavigateToActivities={() => scrollToSection('atividades')}
-        />
+              {/* 4. O PQVT em um Olhar (4 Pilares) */}
+              <section className="sp-webpart">
+                <PillarsSection
+                  selectedPillar={selectedPillar}
+                  onSelectPillar={setSelectedPillar}
+                  onNavigateToActivities={() => scrollToSection('atividades')}
+                />
+              </section>
+            </div>
+
+            <IntranetSidebar
+              onNavigate={scrollToSection}
+              onOpenSharePointSpecs={() => setIsSharePointModalOpen(true)}
+            />
+          </div>
+
+          <div className="mt-5 space-y-5">
+            {/* 5. Acontece Agora (ACT-06 — Plano Anual PQVT 2026) */}
+            <section className="sp-webpart"><ActiveInitiativeSection
+              onOpenDoc09={() => setSelectedDoc(FEATURED_DOC09)}
+              onOpenActionDetail={() => setIsActionDetailOpen(true)}
+            /></section>
+
+            {/* 6. Próximas Atividades (Agenda SharePoint) */}
+            <section className="sp-webpart"><ActivitiesSection
+              activities={
+                selectedPillar
+                  ? activitiesList.filter((a) => a.pillar === selectedPillar)
+                  : activitiesList
+              }
+              onRegister={handleRegisterActivity}
+              onUnregister={handleUnregisterActivity}
+            /></section>
+
+            {/* 7. Serviços para Você (Canais e Acolhimento) */}
+            <section className="sp-webpart"><ServicesSection
+              onSelectService={(srv) => setSelectedService(srv)}
+            /></section>
+
+            {/* 8. Notícias e Histórias (Comunicação Editorial) */}
+            <section className="sp-webpart"><NewsSection
+              onOpenArticle={(article) => setSelectedArticle(article)}
+            /></section>
+
+            {/* 9. Guias e Conhecimento (Destaque DOC-09) */}
+            <section className="sp-webpart"><KnowledgeSection
+              onOpenDoc={(doc) => setSelectedDoc(doc)}
+            /></section>
+
+            {/* 10. Comunidade de Prática (CoP Diversidade & Clima) */}
+            <section className="sp-webpart"><CommunitySection
+              onJoinCommunity={() => setIsJoinCommunityOpen(true)}
+              onOpenDoc15={() => {
+                const doc15 = OTHER_KNOWLEDGE_DOCS.find((d) => d.code === 'DOC-15');
+                if (doc15) setSelectedDoc(doc15);
+              }}
+            /></section>
+
+            {/* 11. Como o PQVT é Construído (Ciclo Contínuo) */}
+            <section className="sp-webpart"><ContinuousCycleSection /></section>
+
+            {/* 12. Indicadores Institucionais */}
+            <section className="sp-webpart"><IndicatorsSection /></section>
+
+            {/* 13. Sobre o PQVT (Eixo 2, EX, DEI, PGD) */}
+            <section className="sp-webpart"><AboutSection /></section>
+
+            {/* 14. CTA Final */}
+            <section className="sp-webpart"><CtaSection
+              onNavigateToActivities={() => scrollToSection('atividades')}
+              onNavigateToServices={() => scrollToSection('servicos')}
+              onJoinCommunity={() => setIsJoinCommunityOpen(true)}
+            /></section>
+          </div>
+        </div>
+      </main>
 
         {/* 5. Acontece Agora (ACT-06 — Plano Anual PQVT 2026) */}
         <ActiveInitiativeSection

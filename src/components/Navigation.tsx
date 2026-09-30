@@ -29,7 +29,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
   };
 
   return (
-    <nav className="sticky top-[112px] z-40 border-b border-[#E1DFE5] bg-white" aria-label="Navegação do site PQVT">
+    <nav className="sticky top-[110px] z-40 border-b border-[#E1DFE5] bg-white" aria-label="Navegação do site PQVT"><div className="lg:ml-[60px]">
       <div className="mx-auto flex min-h-[48px] max-w-[1440px] items-center px-4 lg:px-6">
         <div className="hidden min-w-0 flex-1 items-center overflow-x-auto md:flex no-scrollbar">
           {navItems.map((item) => {
@@ -59,6 +59,8 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
             {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
         </div>
+      </div>
+
       </div>
 
       {mobileMenuOpen && (
