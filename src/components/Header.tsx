@@ -51,9 +51,9 @@ export const Header: React.FC<HeaderProps> = ({
                       ['PQVT', 'Qualidade de vida no trabalho'],
                       ['Documentos', 'Conhecimento e arquivos'],
                     ].map(([title, description]) => (
-                      <button key={title} onClick={() => setShowAppMenu(false)} className="rounded-md border border-[#ECE9EF] p-3 text-left hover:bg-[#F7F6F8]">
+                      <button key={title} onClick={() => setShowAppMenu(false)} className="rounded-md border border-[#ECE9EF] p-3 text-left hover:bg-white/10">
                         <span className="block text-xs font-semibold">{title}</span>
-                        <span className="mt-1 block text-[10px] leading-snug text-[#77717F]">{description}</span>
+                        <span className="mt-1 block text-[10px] leading-snug text-white/65">{description}</span>
                       </button>
                     ))}
                   </div>
@@ -77,26 +77,26 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      <div className="bg-white">
-        <div className="mx-auto flex min-h-[68px] max-w-[1440px] items-center gap-4 px-4 lg:px-6">
-          <a href="#inicio" className="flex min-w-0 items-center gap-4 rounded-sm py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6D4AFF]" aria-label="PQVT Enap - Página inicial">
+      <div className="bg-[#6D4AFF] text-white">
+        <div className="mx-auto flex min-h-[62px] max-w-[1440px] items-center gap-4 px-4 pl-[76px] lg:px-6 lg:pl-[76px]">
+          <a href="#inicio" className="flex min-w-0 items-center gap-4 rounded-sm py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="PQVT Enap - Página inicial">
             <div className="flex h-10 w-[86px] shrink-0 items-center overflow-hidden">
-              <img src={ENAP_LOGO_URL} alt="Enap" className="max-h-10 w-auto max-w-[86px] object-contain object-left" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
+              <img src={ENAP_LOGO_URL} alt="Enap" className="max-h-10 w-auto max-w-[86px] object-contain object-left brightness-0 invert" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
             </div>
-            <div className="hidden min-w-0 border-l border-[#E5E2E8] pl-4 sm:block">
+            <div className="hidden min-w-0 border-l border-white/20 pl-4 sm:block">
               <div className="flex items-center gap-2">
-                <span className="truncate text-[15px] font-semibold text-[#201E24]">Programa de Qualidade de Vida no Trabalho</span>
-                <span className="rounded-sm bg-[#F0ECFF] px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-[#5B3DE0]">PQVT</span>
+                <span className="truncate text-[15px] font-semibold text-white">Programa de Qualidade de Vida no Trabalho</span>
+                <span className="rounded-sm bg-white/15 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.12em] text-white">PQVT</span>
               </div>
-              <span className="mt-0.5 block text-[11px] text-[#77717F]">COGEM · Enap</span>
+              <span className="mt-0.5 block text-[11px] text-white/65">COGEM · Enap</span>
             </div>
           </a>
 
           <div className="ml-auto flex items-center gap-1 sm:gap-2">
-            <button onClick={onOpenSearch} className="flex h-9 w-9 items-center justify-center rounded-sm text-[#605B66] hover:bg-[#F5F3F7] md:hidden" aria-label="Pesquisar"><Search className="h-4 w-4" /></button>
+            <button onClick={onOpenSearch} className="flex h-9 w-9 items-center justify-center rounded-sm text-white hover:bg-white/10 md:hidden" aria-label="Pesquisar"><Search className="h-4 w-4" /></button>
             <div className="relative">
-              <button onClick={() => setShowPersonaMenu((open) => !open)} className="hidden items-center gap-2 rounded-sm border border-[#E3E0E7] px-3 py-2 text-xs font-medium text-[#302D35] hover:bg-[#F7F6F8] sm:flex" aria-expanded={showPersonaMenu}>
-                <User className="h-3.5 w-3.5 text-[#6D4AFF]" /><span>{personaLabels[currentPersona].label}</span><ChevronDown className="h-3 w-3 text-[#77717F]" />
+              <button onClick={() => setShowPersonaMenu((open) => !open)} className="hidden items-center gap-2 rounded-sm border border-white/20 px-3 py-2 text-xs font-medium text-white hover:bg-white/10 sm:flex" aria-expanded={showPersonaMenu}>
+                <User className="h-3.5 w-3.5 text-white" /><span>{personaLabels[currentPersona].label}</span><ChevronDown className="h-3 w-3 text-[#77717F]" />
               </button>
               {showPersonaMenu && (
                 <>
@@ -104,7 +104,7 @@ export const Header: React.FC<HeaderProps> = ({
                   <div className="absolute right-0 top-11 z-20 w-72 rounded-md border border-[#D9D6DE] bg-white p-2 shadow-xl">
                     <div className="border-b border-[#ECE9EF] px-3 py-2"><p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#77717F]">Perfil de visualização</p></div>
                     {(['servidor', 'gestor', 'equipe_pqvt'] as UserPersona[]).map((persona) => (
-                      <button key={persona} onClick={() => { onSelectPersona(persona); setShowPersonaMenu(false); }} className={`mt-1 w-full rounded-sm p-3 text-left ${currentPersona === persona ? 'bg-[#F0ECFF] text-[#5B3DE0]' : 'hover:bg-[#F7F6F8]'}`}>
+                      <button key={persona} onClick={() => { onSelectPersona(persona); setShowPersonaMenu(false); }} className={`mt-1 w-full rounded-sm p-3 text-left ${currentPersona === persona ? 'bg-white/15 text-white' : 'hover:bg-[#F7F6F8]'}`}>
                         <div className="flex items-center justify-between gap-2"><span className="text-xs font-semibold">{personaLabels[persona].label}</span><span className="text-[9px] uppercase tracking-wider text-[#77717F]">{personaLabels[persona].tag}</span></div>
                         <span className="mt-1 block text-[11px] leading-snug text-[#77717F]">{personaLabels[persona].tip}</span>
                       </button>
@@ -136,8 +136,8 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
 
-            <a href="#servicos" className="hidden items-center gap-1 rounded-sm px-2 py-2 text-xs font-medium text-[#4E4A54] hover:bg-[#F5F3F7] lg:flex">
-              <HeartHandshake className="h-4 w-4 text-[#6D4AFF]" /><span>Serviços</span>
+            <a href="#servicos" className="hidden items-center gap-1 rounded-sm px-2 py-2 text-xs font-medium text-white hover:bg-white/10 lg:flex">
+              <HeartHandshake className="h-4 w-4 text-white" /><span>Serviços</span>
             </a>
             <button className="flex h-9 w-9 items-center justify-center rounded-sm text-[#605B66] hover:bg-[#F5F3F7] sm:hidden" aria-label="Pesquisar" onClick={onOpenSearch}><Menu className="h-4 w-4" /></button>
           </div>
