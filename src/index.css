@@ -28,6 +28,12 @@
 .ide-cover strong { font-size: 60px; line-height: 1; }
 .ide-cover small { margin-top: 8px; color: #C9E86A; }
 .ide-note { padding: 12px; border-left: 3px solid #B3A3F5; background: #F8F6FF; font-size: 12px; }
+.ide-tag { display: block; border: 1px solid; border-radius: 12px; padding: 7px 10px; font-size: 11px; line-height: 1.5; }
+.ide-summary { cursor: pointer; }
+.ide-enap-logo { width: 100px; height: 30px; object-fit: cover; filter: brightness(0) invert(1); }
+.ide-pagination { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-top: 20px; }
+.ide-pagination select { min-width: 90px; }
+.ide-detail { line-height: 1.6; }
 #praticas-ide :is(button, a, input, select):focus-visible { outline: 2px solid #6D4AFF; outline-offset: 3px; }
 @media (max-width: 900px) { .ide-filters { grid-template-columns: 1fr 1fr; } .ide-table { min-width: 760px; } .ide-detail { grid-template-columns: 160px minmax(0, 1fr); gap: 16px; padding: 16px; } }
 @media (max-width: 600px) { .ide-filters { grid-template-columns: 1fr; } .ide-detail { grid-template-columns: 1fr; } .ide-cover { min-height: auto; } }

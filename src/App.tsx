@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
@@ -47,6 +47,19 @@ import {
 import { AlertCircle, CheckCircle, Info, UserCheck, ShieldAlert } from 'lucide-react';
 
 export default function App() {
+  const [isIdePage, setIsIdePage] = useState(() => window.location.pathname === '/praticas-ide');
+  useEffect(() => {
+    const syncPage = () => {
+      if (window.location.hash === '#praticas-ide') window.history.replaceState(null, '', '/praticas-ide');
+      const ide = window.location.pathname === '/praticas-ide';
+      setIsIdePage(ide);
+      setActiveSection(ide ? 'praticas-ide' : window.location.hash.slice(1) || 'inicio');
+    };
+    window.addEventListener('popstate', syncPage);
+    window.addEventListener('hashchange', syncPage);
+    syncPage();
+    return () => { window.removeEventListener('popstate', syncPage); window.removeEventListener('hashchange', syncPage); };
+  }, []);
   // Application State
   const [currentPersona, setCurrentPersona] = useState<UserPersona>('servidor');
   const [selectedPillar, setSelectedPillar] = useState<PillarType | null>(null);
@@ -108,6 +121,18 @@ export default function App() {
   // Scroll to section helper
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
+    if (sectionId === 'praticas-ide') {
+      window.history.pushState(null, '', '/praticas-ide');
+      setIsIdePage(true);
+      window.scrollTo({ top: 0 });
+      return;
+    }
+    if (isIdePage) {
+      window.history.pushState(null, '', `/#${sectionId}`);
+      setIsIdePage(false);
+      requestAnimationFrame(() => document.getElementById(sectionId)?.scrollIntoView());
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       const navOffset = 110;
@@ -168,6 +193,10 @@ export default function App() {
       {/* Main Content Viewport — SharePoint-style home canvas */}
       <main className="sp-home flex-1 lg:pl-[60px]">
         <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
+          {isIdePage ? <>
+            <a href="/" onClick={(event) => { event.preventDefault(); scrollToSection('inicio'); }} className="mb-4 inline-block text-sm text-[#5B3DE0] hover:underline">← Página inicial</a>
+            <IdePracticesSection />
+          </> : <>
           <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
             <div className="min-w-0 space-y-5">
               <section className="sp-webpart">
@@ -238,7 +267,6 @@ export default function App() {
 
             {/* 12. Indicadores Institucionais */}
             <section className="sp-webpart"><IndicatorsSection /></section>
-            <section className="sp-webpart"><IdePracticesSection /></section>
 
             {/* 13. Sobre o PQVT (Eixo 2, EX, DEI, PGD) */}
             <section className="sp-webpart"><AboutSection /></section>
@@ -250,6 +278,7 @@ export default function App() {
               onJoinCommunity={() => setIsJoinCommunityOpen(true)}
             /></section>
           </div>
+          </>}
         </div>
       </main>
 
