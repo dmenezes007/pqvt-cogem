@@ -41,14 +41,15 @@ export function IdePracticesSection() {
   const hasFilters = Boolean(query || requirement || dimension);
 
   return <section id="praticas-ide" className="sp-card scroll-mt-44 p-5 sm:p-8" aria-labelledby="ide-title">
-    <div className="mb-4 flex flex-wrap justify-end gap-2" aria-label="Downloads de práticas">
-      <a className="ide-download" href="/downloads/praticas-ide-enap.xlsx" download>Baixar XLSX</a>
-      <a className="ide-download" href="/downloads/praticas-ide-enap.csv" download>Baixar CSV</a>
-    </div>
-    <p className="mb-4 text-right text-xs text-[#6F6B75]">Downloads incluem as 55 práticas.</p>
-    <div className="mb-5 flex items-start gap-3">
-      <div className="rounded-lg bg-[#F0ECFF] p-3 text-[#5B3DE0]"><SlidersHorizontal aria-hidden="true" className="h-5 w-5" /></div>
-      <div><p className="sp-section-label">Diversidade, equidade e inclusão</p><h1 id="ide-title" className="mt-1 text-2xl font-bold">Práticas IDE da Enap</h1><p className="mt-2 text-sm text-[#5F5A65]">Pesquise, combine filtros e expanda cada prática para consultar sua descrição e evidência.</p></div>
+    <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className="flex min-w-0 items-start gap-3">
+        <div className="rounded-lg bg-[#F0ECFF] p-3 text-[#5B3DE0]"><SlidersHorizontal aria-hidden="true" className="h-5 w-5" /></div>
+        <div><p className="sp-section-label">Diversidade, equidade e inclusão</p><h1 id="ide-title" className="mt-1 text-2xl font-bold">Práticas IDE da Enap</h1><p className="mt-2 text-sm text-[#5F5A65]">Pesquise, combine filtros e expanda cada prática para consultar sua descrição e evidência.</p></div>
+      </div>
+      <div className="flex shrink-0 flex-wrap gap-2 sm:pt-1" aria-label="Downloads de práticas">
+        <a className="ide-download" href="/downloads/praticas-ide-enap.xlsx" download>Baixar XLSX</a>
+        <a className="ide-download" href="/downloads/praticas-ide-enap.csv" download>Baixar CSV</a>
+      </div>
     </div>
     <div className="ide-filters">
       <label className="ide-control"><span>Pesquisar práticas</span><div className="relative"><Search aria-hidden="true" className="absolute left-3 top-3 h-4 w-4 text-[#77717F]" /><input className="pl-9" type="search" value={query} onChange={(event) => { setQuery(event.target.value); setPage(1); }} placeholder="Título, descrição, requisito ou evidência…" /></div></label>
@@ -81,6 +82,6 @@ export function IdePracticesSection() {
       <span className="text-xs text-[#5F5A65]" role="status">{filtered.length ? (currentPage - 1) * pageSize + 1 : 0}–{Math.min(currentPage * pageSize, filtered.length)} de {filtered.length} • Página {currentPage} de {pages}</span>
       <div className="flex gap-2"><button className="ide-clear" disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}>Anterior</button><button className="ide-clear" disabled={currentPage === pages} onClick={() => setPage(currentPage + 1)}>Próxima</button></div>
     </div>
-    <p className="mt-4 text-xs leading-relaxed text-[#6F6B75]">Requisitos transcritos da planilha original do Modelo IDE. A vinculação de uma prática a um requisito não comprova seu atendimento integral. Consulte as observações e a evidência de cada registro.</p>
+    <p className="mt-4 text-xs leading-relaxed text-[#6F6B75]">Consulte as observações e a evidência de cada registro.</p>
   </section>;
 }
