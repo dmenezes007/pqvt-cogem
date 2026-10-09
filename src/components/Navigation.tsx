@@ -20,6 +20,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
     { id: 'guias', label: 'Documentos', icon: BookOpen },
     { id: 'comunidade', label: 'Comunidades', icon: Users },
     { id: 'indicadores', label: 'Indicadores', icon: BarChart3 },
+    { id: 'praticas-ide', label: 'Práticas IDE', icon: BookOpen },
     { id: 'sobre', label: 'Sobre o PQVT', icon: Info },
   ];
 

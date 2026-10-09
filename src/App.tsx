@@ -11,6 +11,7 @@ import { KnowledgeSection } from './components/KnowledgeSection';
 import { CommunitySection } from './components/CommunitySection';
 import { ContinuousCycleSection } from './components/ContinuousCycleSection';
 import { IndicatorsSection } from './components/IndicatorsSection';
+import { IdePracticesSection } from './components/IdePracticesSection';
 import { AboutSection } from './components/AboutSection';
 import { CtaSection } from './components/CtaSection';
 import { IntranetSidebar } from './components/IntranetSidebar';
@@ -237,6 +238,7 @@ export default function App() {
 
             {/* 12. Indicadores Institucionais */}
             <section className="sp-webpart"><IndicatorsSection /></section>
+            <section className="sp-webpart"><IdePracticesSection /></section>
 
             {/* 13. Sobre o PQVT (Eixo 2, EX, DEI, PGD) */}
             <section className="sp-webpart"><AboutSection /></section>

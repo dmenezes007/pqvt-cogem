@@ -1,0 +1,996 @@
+{
+  "requirements": [
+    {
+      "id": 1,
+      "text": "1. O Planejamento Estratégico da Instituição prevê na sua missão, visão, valores organizacionais ou nos objetivos estratégicos a temática da diversidade, equidade e inclusão?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 2,
+      "text": "2. Possui política/compromisso formalmente instituído para a promoção de equidade e inclusão de gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 3,
+      "text": "3. Possui um programa/projeto/plano de ação estruturado para a gestão da diversidade com foco em gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 4,
+      "text": "4. Possui política/compromisso formal voltado ao combate à discriminação e ao desrespeito a direitos relacionados a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 5,
+      "text": "5. Possui um programa estruturado para a prevenção da discriminação e do desrespeito a direitos relacionados a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 6,
+      "text": "6. Adota protocolos pré-estabelecidos e divulgados internamente para o tratamento de denúncias de discriminação e de desrespeito a direitos relacionados a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 7,
+      "text": "7. Na elaboração de processos, produtos e/ou serviços inovadores na instituição, o público-alvo é consultado nas fases de entendimento do problema, validação da solução escolhida, prototipagem e teste, considerando-se, para a seleção do grupo de consulta, a diversidade quanto à raça e ao gênero?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 8,
+      "text": "8. Há instâncias especializadas para a promoção da temática de diversidade e inclusão de gênero e raça na instituição (comitês, comissões e/ou unidades especializadas)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 9,
+      "text": "9. Há instâncias para apurar, de forma qualificada, a discriminação e o desrespeito a direitos relacionados a gênero e raça (comitês, comissões e/ou unidades especializadas)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA"
+    },
+    {
+      "id": 10,
+      "text": "10. A alta administração apoia e dá suporte à agenda institucional de promoção de equidade e inclusão de gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA"
+    },
+    {
+      "id": 11,
+      "text": "11. Há critério de diversidade de gênero e/ou raça para composição de grupos de governança (conselhos, comitês, comissões, grupos de trabalho)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA"
+    },
+    {
+      "id": 12,
+      "text": "12. A organização observa critérios de diversidade de gênero e raça na designação de cargos de chefia?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA"
+    },
+    {
+      "id": 13,
+      "text": "13. A capacitação continuada de gestores e lideranças da instituição contempla aspectos de inclusão da diversidade com foco em gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA"
+    },
+    {
+      "id": 14,
+      "text": "14. As diretrizes de gestão e documentos relativos à promoção da equidade e inclusão de gênero e raça estão disponíveis para livre acesso ao público interno e externo?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY"
+    },
+    {
+      "id": 15,
+      "text": "15. Há divulgação periódica para a sociedade das iniciativas e resultado adotados pela instituição pertinentes ao tema equidade e inclusão de gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY"
+    },
+    {
+      "id": 16,
+      "text": "16. A instituição apresenta os resultados de suas políticas sobre equidade e inclusão de gênero e raça à órgão ou entidade externa (Órgão de controle, CNJ, CNMP, TCU, OIT, AUDIN, etc.)? ",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY"
+    },
+    {
+      "id": 17,
+      "text": "17. A instituição monitora de forma estruturada e contínua a diversidade da força de trabalho quanto a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY"
+    },
+    {
+      "id": 18,
+      "text": "18. Há sistema de cotas para gênero e raça no ingresso da instituição?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 19,
+      "text": "19. Há critério de diversidade de gênero e/ou raça para designação de funções ou cargos comissionados?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 20,
+      "text": "20. A oferta e a participação nas capacitações observam critérios de diversidade de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 21,
+      "text": "21. Há investimentos anuais para a capacitação e sensibilização da força de trabalho na temática de equidade e inclusão de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 22,
+      "text": "22. Há serviço especializado para acolhimento às vítimas de discriminação e aos direitos relacionados a gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 23,
+      "text": "23. Há programas de promoção da saúde e qualidade de vida no trabalho com recorte de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 24,
+      "text": "24.  Há,  na  instituição,  política  de  benefícios  que  contemple  e  promova  a equidade e inclusão de gênero e raça.",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 25,
+      "text": "25. Há iniciativas práticas voltadas ao reconhecimento e valorização dos trabalhadores (as) considerando critério da diversidade com foco em gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 26,
+      "text": "26. A instituição adota o critério de representatividade de gênero e raça na composição das mesas de eventos institucionais (celebração e capacitação)?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS"
+    },
+    {
+      "id": 27,
+      "text": "27. Existem critérios de contratação de prestação de serviços e outros que contemplam gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE CONTRATAÇÕES"
+    },
+    {
+      "id": 28,
+      "text": "28. Existem ações de comunicação inclusiva que contemplem questões de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "COMUNICAÇÃO"
+    },
+    {
+      "id": 29,
+      "text": "29. A instituição adota linguagem inclusiva, não sexista e flexão de gênero na comunicação?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "COMUNICAÇÃO"
+    },
+    {
+      "id": 30,
+      "text": "30. A instituição adota critério da diversidade no uso de imagens para campanhas?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "COMUNICAÇÃO"
+    },
+    {
+      "id": 31,
+      "text": "31. Há previsão orçamentária para ações voltadas à implementação da política de equidade e inclusão de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO ORÇAMENTÁRIA"
+    },
+    {
+      "id": 32,
+      "text": "32. Há iniciativas implementadas pela instituição que contemplam a defesa dos direitos humanos?",
+      "dimension": "III - SOCIAL",
+      "theme": "DIREITOS HUMANOS"
+    },
+    {
+      "id": 33,
+      "text": "33. A instituição promove a cultura da integridade visando garantir o respeito e a valorização da diversidade?",
+      "dimension": "III - SOCIAL",
+      "theme": "DIREITOS HUMANOS"
+    },
+    {
+      "id": 34,
+      "text": "34. Há normatização e/ou orientação do uso do banheiro para pessoas transexuais/transgênerona instituição?",
+      "dimension": "III - SOCIAL",
+      "theme": "DIREITOS HUMANOS"
+    },
+    {
+      "id": 35,
+      "text": "35. Foram firmadas parcerias qualificadas para tratar das temáticas de gênero e raça com outras instituições públicas, organismos internacionais e/ou sociedade organizada (OSCIP, associações, etc.)?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM SOCIEDADE"
+    },
+    {
+      "id": 36,
+      "text": "36. Há atividades voltadas à integração da instituição com a comunidade para a promoção de ações solidárias que contemplem aspectos da diversidade com foco em gênero e raça?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM SOCIEDADE"
+    },
+    {
+      "id": 37,
+      "text": "37. Há a promoção de eventos e sensibilização que abordem a temática de equidade e inclusão de gênero e raça para a comunidade? ",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM SOCIEDADE"
+    },
+    {
+      "id": 38,
+      "text": "38. Há variáveis relacionadas à gênero e a raça nos documentos e formulários destinados ao atendimento e manifestação da cidadã usuária ou do cidadão usuário?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM USUÁRIO/CONSUMIDOR"
+    }
+  ],
+  "practices": [
+    {
+      "id": 1,
+      "title": "Objetivo Estratégico de Inclusão e Equidade",
+      "description": "A Enap explicita em seu planejamento estratégico a inclusão e a equidade de gênero, raça e outras diversidades. A página oficial do Rotas para Acessibilidade reproduz esse objetivo e um indicador associado.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página oficial Rotas para Acessibilidade — Sobre, seção “Alinhamento ao Compromisso da Enap com a Acessibilidade”, subseção “Mapa Estratégico”.",
+      "requirementIds": [
+        1
+      ],
+      "mappingNotes": "R01 — evidência explícita do objetivo estratégico na página institucional.",
+      "source": "https://www.enap.gov.br/educacao-e-capacitacao/rotas/sobre/"
+    },
+    {
+      "id": 2,
+      "title": "Programa de Governança Institucional",
+      "description": "Integra estratégia, processos, projetos, riscos, privacidade e dados, com princípios de diversidade e inclusão.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Resolução Enap nº 77/2025, referenciada na página oficial do Programa.",
+      "requirementIds": [
+        2,
+        33,
+        14
+      ],
+      "mappingNotes": "R02 e R33 — contribuição normativa; R14 — publicação pública.",
+      "source": "https://www.enap.gov.br/acesso-a-informacao/acoes-e-programas/programa-de-governan%C3%A7a-institucional-da-enap/"
+    },
+    {
+      "id": 3,
+      "title": "Comitê de Diversidades, Equidade e Inclusão",
+      "description": "Instância formal para coordenar igualdade de oportunidades, eliminar discriminações e consolidar uma cultura inclusiva.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Portaria Enap nº 40, de 24/07/2024, arts. 1º a 4º.",
+      "requirementIds": [
+        2,
+        4,
+        8,
+        10
+      ],
+      "mappingNotes": "R02, R04 e R08 — evidência direta; R10 — suporte institucional.",
+      "source": "https://repositorio.enap.gov.br/handle/1/7958"
+    },
+    {
+      "id": 4,
+      "title": "Representatividade na Composição do Comitê de Diversidades, Equidade e Inclusão",
+      "description": "A composição deve buscar representatividade de gênero, etnia, raça e outras dimensões. O critério alcança este colegiado.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Portaria Enap nº 40/2024, art. 8º. Confirmar aplicação no ato de designação.",
+      "requirementIds": [
+        11
+      ],
+      "mappingNotes": "R11 — critério formal para o Comitê; não demonstra aplicação a todos os colegiados.",
+      "source": "https://repositorio.enap.gov.br/handle/1/7958"
+    },
+    {
+      "id": 5,
+      "title": "Plano Anual e Diagnósticos de Diversidades",
+      "description": "O Comitê deve estruturar plano anual, realizar diagnósticos e acompanhar implementação e atividades.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Portaria Enap nº 40/2024, art. 4º, II, III, VI e IX. Competência prevista; execução depende dos documentos anuais.",
+      "requirementIds": [
+        3,
+        15,
+        17
+      ],
+      "mappingNotes": "R03, R15 e R17 — contribuição normativa; juntar plano, diagnóstico e relatório.",
+      "source": "https://repositorio.enap.gov.br/handle/1/7958"
+    },
+    {
+      "id": 6,
+      "title": "Ações Afirmativas nas Aprendizagens",
+      "description": "A norma disciplina reservas de vagas, prioridades, bonificações e representação diversa na instrutoria.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Resolução Enap nº 76, de 27/03/2025, art. 1º.",
+      "requirementIds": [
+        2,
+        20,
+        26
+      ],
+      "mappingNotes": "R02 e R20 — evidência normativa; R26 — contribuição na instrutoria, confirmar mesas de eventos.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/8537/1/R76.2025.pdf"
+    },
+    {
+      "id": 7,
+      "title": "Reservas de Vagas e Paridade no MBA em Ciência de Dados e Inteligência Artificial Aplicadas",
+      "description": "O processo de 2026 prevê reservas para grupos discriminados e paridade de gênero, operacionalizadas na inscrição.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Edital Enap nº 230/2026, itens 4 a 6, MBA em Ciência de Dados e Inteligência Artificial Aplicadas, 2ª edição.",
+      "requirementIds": [
+        20,
+        38,
+        18
+      ],
+      "mappingNotes": "R20 — evidência direta; R38 — gênero e raça na seleção educacional; R18 — apenas ingresso discente.",
+      "source": "https://www.enap.gov.br/docs/679/SEI_1017782_Edital_230.pdf"
+    },
+    {
+      "id": 8,
+      "title": "Formulário Inclusivo do Banco de Colaboradores",
+      "description": "Formulário público registra autodeclaração racial e opção por vagas reservadas para pessoas negras e indígenas.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Chamada Pública Simplificada nº 225, formulário oficial, seções 4 e 6. Verificar vigência pelo edital associado.",
+      "requirementIds": [
+        38,
+        20
+      ],
+      "mappingNotes": "R38 — evidência racial no atendimento à seleção; R20 — seleção de docentes, contribuição.",
+      "source": "https://centraldeinscricoes.enap.gov.br/chamada-publica-225/"
+    },
+    {
+      "id": 9,
+      "title": "Plano Setorial de Enfrentamento às Violências",
+      "description": "Aprovação formal de programa interno de prevenção e enfrentamento de assédio e discriminação.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Resolução Enap nº 93, de 19/05/2026, que aprova o PSEAD.",
+      "requirementIds": [
+        3,
+        4,
+        5
+      ],
+      "mappingNotes": "R03, R04 e R05 — evidência normativa direta.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/9911/2/R.93-2026.pdf"
+    },
+    {
+      "id": 10,
+      "title": "Fluxo de Tratamento de Denúncias do PSEAD",
+      "description": "Define públicos, salvaguardas, responsabilidades e procedimentos de registro e apuração.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "PSEAD/Enap 2026, seção de tratamento da denúncia, pp. 34–46. Confirmar divulgação interna e execução.",
+      "requirementIds": [
+        6,
+        9,
+        22
+      ],
+      "mappingNotes": "R06 e R09 — protocolo documentado; R22 — contribuição.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
+    },
+    {
+      "id": 11,
+      "title": "Núcleo e Rede de Acolhimento no PSEAD",
+      "description": "Prevê criação de núcleo, formação das equipes, canais acessíveis e acompanhamento.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "PSEAD/Enap 2026, pp. 27–33. Previsão estruturada; comprovar funcionamento.",
+      "requirementIds": [
+        22
+      ],
+      "mappingNotes": "R22 — previsão de serviço especializado; execução não comprovada.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
+    },
+    {
+      "id": 12,
+      "title": "Formação Interna e Saúde no PSEAD",
+      "description": "Prevê capacitação de gestão e equipes, prevenção de riscos e promoção da saúde.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "PSEAD/Enap 2026, pp. 19–26. Juntar registros de participação e execução.",
+      "requirementIds": [
+        13,
+        21,
+        23
+      ],
+      "mappingNotes": "R13, R21 e R23 — previsão; verificar recortes e continuidade.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
+    },
+    {
+      "id": 13,
+      "title": "Requisitos Contratuais no PSEAD",
+      "description": "Prevê cláusulas e requisitos para docentes e serviços de mão de obra.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "PSEAD/Enap 2026, p. 22 e pp. 47–52. Conferir incorporação nos contratos.",
+      "requirementIds": [
+        27
+      ],
+      "mappingNotes": "R27 — previsão antidiscriminatória; não comprova reserva de contratação.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
+    },
+    {
+      "id": 14,
+      "title": "Monitoramento, Comunicação e Reporte do PSEAD",
+      "description": "Prevê indicadores, relatórios e comunicação anual para acompanhar o plano.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "PSEAD/Enap 2026, pp. 54–61. Confirmar relatórios efetivamente emitidos.",
+      "requirementIds": [
+        15,
+        16,
+        17,
+        28
+      ],
+      "mappingNotes": "R15, R16, R17 e R28 — previsão; execução a comprovar.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
+    },
+    {
+      "id": 15,
+      "title": "Divulgação do Plano Setorial de Enfrentamento às Violências",
+      "description": "Notícia institucional apresenta o plano, os recortes de diversidade e os canais de acolhimento.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Enap, 03/09/2026, e página pública com o plano e a resolução.",
+      "requirementIds": [
+        10,
+        14,
+        15,
+        28,
+        33
+      ],
+      "mappingNotes": "R10, R14, R15 e R28 — evidência de divulgação; R33 — valorização da diversidade.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-institui-plano-setorial-de-enfrentamento-ao-ass%C3%A9dio-e-%C3%A0-discrimina%C3%A7%C3%A3o/"
+    },
+    {
+      "id": 16,
+      "title": "Ouvidoria da Enap e Canal Oficial Fala.Br",
+      "description": "A Enap divulga registro de denúncias, acompanhamento e atendimento presencial.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página oficial da Ouvidoria com instruções para manifestações, canais e horários.",
+      "requirementIds": [
+        6,
+        9,
+        22
+      ],
+      "mappingNotes": "R06 — canal divulgado; R09 e R22 — contribuição, canal não equivale a serviço especializado.",
+      "source": "https://www.enap.gov.br/acesso-a-informacao/ouvidoria-e-transparencia/"
+    },
+    {
+      "id": 17,
+      "title": "Corregedoria da Enap",
+      "description": "Unidade setorial do Siscor atua na prevenção de irregularidades e responsabilização disciplinar.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Decreto nº 12.300/2024 e página oficial Conheça a Corregedoria.",
+      "requirementIds": [
+        9
+      ],
+      "mappingNotes": "R09 — instância de apuração; qualificação específica deve ser documentada.",
+      "source": "https://www.enap.gov.br/acesso-a-informacao/conheca-a-corregedoria/"
+    },
+    {
+      "id": 18,
+      "title": "Implementação do Guia Lilás na Enap",
+      "description": "Orientações federais para prevenção e tratamento de assédio e discriminação com atenção a gênero e raça.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página da Ouvidoria remete ao Guia Lilás atualizado da CGU.",
+      "requirementIds": [
+        4,
+        6,
+        14,
+        33,
+        34
+      ],
+      "mappingNotes": "R04, R06, R14 e R33 — orientação pública; R34 — não comprova regra local sobre banheiros.",
+      "source": "https://www.enap.gov.br/acesso-a-informacao/ouvidoria-e-transparencia/"
+    },
+    {
+      "id": 19,
+      "title": "Programa Formação de Iniciativas Antirracistas — Fiar",
+      "description": "Parceria com o MIR para formação, conhecimento e enfrentamento das desigualdades raciais no serviço público.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia oficial de lançamento do Fiar, 2023.",
+      "requirementIds": [
+        3,
+        10,
+        21,
+        32,
+        35,
+        37,
+        13
+      ],
+      "mappingNotes": "R03, R10, R21, R32, R35 e R37 — contribuição institucional; R13 exige participação interna.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-e-mir-lancam-programa-para-combater-racismo-e-estimular-lideranca-de-pretos-e-pardos-no-setor-publico/"
+    },
+    {
+      "id": 20,
+      "title": "Programa Formação e Iniciativas Feministas — FIF",
+      "description": "Portfólio estruturado de formação para igualdade de gênero nas políticas públicas.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Portfólio de Programas Estratégicos da Enap 2023–2026.",
+      "requirementIds": [
+        3,
+        21,
+        32,
+        35,
+        37,
+        13
+      ],
+      "mappingNotes": "R03, R21, R32, R35 e R37 — ação finalística; R13 depende de registros de gestores da Enap.",
+      "source": "https://enap.gov.br/docs/161/Portf%C3%B3lio_Programas_Estrat%C3%A9gicos_Enap_23_26.pptx.pdf"
+    },
+    {
+      "id": 21,
+      "title": "Prestação de Contas dos Resultados do Fiar",
+      "description": "Enap, MIR e MGI apresentam ações do programa e promovem debates sobre desigualdades.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia oficial do encontro de apresentação de ações de 2024.",
+      "requirementIds": [
+        15,
+        35,
+        37,
+        16
+      ],
+      "mappingNotes": "R15, R35 e R37 — evidência; R16 — apresentação a parceiros, verificar relatório formal.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-mir-e-mgi-apresentam-acoes-de-2024-no-ambito-do-fiar/"
+    },
+    {
+      "id": 22,
+      "title": "Observatório de Programas Estratégicos",
+      "description": "Portal público reúne iniciativas de formação antirracista, feminista e de cuidados.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Observatório da Enap. Dados dinâmicos consultados em 09/10/2026.",
+      "requirementIds": [
+        14,
+        15,
+        17
+      ],
+      "mappingNotes": "R14 e R15 — transparência; R17 — não substitui dados da força de trabalho.",
+      "source": "https://observatorio.enap.gov.br/"
+    },
+    {
+      "id": 23,
+      "title": "LideraGOV Extraordinário para Pessoas Negras",
+      "description": "Edição específica desenvolve lideranças negras mediante processo seletivo e formação.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Enap de lançamento da 4ª edição extraordinária, 2023.",
+      "requirementIds": [
+        20,
+        21,
+        35,
+        12,
+        19
+      ],
+      "mappingNotes": "R20, R21 e R35 — formação afirmativa; R12 e R19 — não comprova nomeações internas.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-realiza-lancamento-do-curso-lideragov-exclusivo-para-pessoas-negras/"
+    },
+    {
+      "id": 24,
+      "title": "LideraGOV 6.0 com Reservas e Paridade",
+      "description": "A edição iniciada em 2026 contempla paridade e reserva para grupos historicamente discriminados.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia oficial Enap e MGI iniciam sexta edição do programa, 2026.",
+      "requirementIds": [
+        20,
+        35,
+        12,
+        19
+      ],
+      "mappingNotes": "R20 e R35 — evidência; R12 e R19 — contribuição na formação de lideranças.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-e-mgi-iniciam-sexta-edi%C3%A7%C3%A3o-do-programa-lideragov/"
+    },
+    {
+      "id": 25,
+      "title": "Rede de Mulheres Negras Líderes",
+      "description": "Rede da Enap e do MIR, com apoio da Fundação Lemann, fortalece conexões e desenvolvimento de lideranças.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia de apresentação das diretrizes e ações da Rede para 2024.",
+      "requirementIds": [
+        20,
+        25,
+        35,
+        37
+      ],
+      "mappingNotes": "R20, R25, R35 e R37 — valorização e formação externas; R25 interno a confirmar.",
+      "source": "https://www.enap.gov.br/acontece/noticias/rede-de-mulheres-negras-lideres-no-setor-publico-apresenta-diretrizes-e-acoes-para-o-ano-de-2024/"
+    },
+    {
+      "id": 26,
+      "title": "Mentoria Coletiva para Lideranças Negras",
+      "description": "Mentoria promove apoio e desenvolvimento profissional de mulheres negras em gestão.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Enap promove mentoria coletiva dedicada ao fortalecimento de redes para lideranças negras.",
+      "requirementIds": [
+        20,
+        25,
+        35
+      ],
+      "mappingNotes": "R20, R25 e R35 — contribuição finalística; participação interna a verificar.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-promove-mentoria-coletiva-dedicada-ao-fortalecimento-de-redes-para-liderancas-negras/"
+    },
+    {
+      "id": 27,
+      "title": "Planejamento Participativo da Rede de Mulheres Negras",
+      "description": "Oficina mapeia necessidades, interesses e formatos para planejar encontros e mentorias.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Vitrine Enap, Oficina de Planejamento 2025 da Rede, curso 2843.",
+      "requirementIds": [
+        7
+      ],
+      "mappingNotes": "R07 — escuta do público-alvo com recorte racial e de gênero; faltam as demais fases.",
+      "source": "https://suap.enap.gov.br/vitrine/curso/2843/"
+    },
+    {
+      "id": 28,
+      "title": "Curso Mulheres na Liderança",
+      "description": "Formação vinculada ao FIF reúne servidoras de várias regiões e amplia oportunidades de liderança.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia oficial sobre capacitação de mulheres na liderança, 2024.",
+      "requirementIds": [
+        20,
+        21,
+        37,
+        13
+      ],
+      "mappingNotes": "R20, R21 e R37 — evidência de oferta; R13 — execução para gestores internos a comprovar.",
+      "source": "https://www.enap.gov.br/pt/acontece/noticias/curso-mulheres-na-lideranca-capacita-servidoras-de-diferentes-estados-do-brasil"
+    },
+    {
+      "id": 29,
+      "title": "Liderança Inclusiva e Gestão das Diversidades",
+      "description": "Curso aborda equidade racial e de gênero, povos indígenas, deficiência e práticas organizacionais inclusivas.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Vitrine oficial, curso 2611, objetivos e conteúdo programático.",
+      "requirementIds": [
+        13,
+        21
+      ],
+      "mappingNotes": "R13 e R21 — oferta comprovada; continuidade e participação da gestão interna a verificar.",
+      "source": "https://suap.enap.gov.br/vitrine/curso/2611/"
+    },
+    {
+      "id": 30,
+      "title": "Banco de Perfis para Promoção e Gestão da Diversidade",
+      "description": "Pré-seleção de perfis de liderança para órgãos parceiros no Programa Líderes que Transformam.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Governo lança banco de perfis de liderança para promoção e gestão da diversidade.",
+      "requirementIds": [
+        12,
+        19
+      ],
+      "mappingNotes": "R12 e R19 — contribuição externa; não comprova critérios de nomeação na Enap.",
+      "source": "https://www.enap.gov.br/acontece/noticias/governo-lanca-banco-de-perfis-de-lideranca-para-promocao-e-gestao-da-diversidade/"
+    },
+    {
+      "id": 31,
+      "title": "Python para Análise de Dados Exclusivo para Mulheres",
+      "description": "Trilha com docentes mulheres e certificação em programação e análise de dados.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Relatório de Gestão 2024, pp. 20–21.",
+      "requirementIds": [
+        20,
+        21
+      ],
+      "mappingNotes": "R20 — evidência; R21 — oferta, investimento interno a comprovar.",
+      "source": "https://enap.gov.br/docs/160/DIREX_RELATORIO_DE_GESTAO_2024_v3_1.pdf"
+    },
+    {
+      "id": 32,
+      "title": "Disciplina de Equidade de Gênero e Raça nos MBAs",
+      "description": "Disciplina transversal ofertada em MBAs da Escola em 2024.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Relatório de Gestão 2024, p. 32.",
+      "requirementIds": [
+        13,
+        21
+      ],
+      "mappingNotes": "R13 e R21 — contribuição curricular; gestores da Enap a confirmar.",
+      "source": "https://enap.gov.br/docs/160/DIREX_RELATORIO_DE_GESTAO_2024_v3_1.pdf"
+    },
+    {
+      "id": 33,
+      "title": "Sala de Amamentação da Enap",
+      "description": "Espaço institucional de apoio às lactantes, integrado à gestão de pessoas e ao PQVT.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia de inauguração da sala, 05/09/2024.",
+      "requirementIds": [
+        23,
+        24
+      ],
+      "mappingNotes": "R23 — prática interna de gênero; R24 — apoio material, política formal ampla a verificar.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-inaugura-sala-de-amamentacao-e-lanca-programa-maternidade-conectada/"
+    },
+    {
+      "id": 34,
+      "title": "Programa Maternidade Conectada",
+      "description": "Acolhe mães nos 90 dias após retorno da licença-maternidade.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia de lançamento pela CGGP e PQVT, 05/09/2024.",
+      "requirementIds": [
+        23,
+        24,
+        25
+      ],
+      "mappingNotes": "R23 — prática interna de gênero; R24 e R25 — contribuição, recorte racial e norma a verificar.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-inaugura-sala-de-amamentacao-e-lanca-programa-maternidade-conectada/"
+    },
+    {
+      "id": 35,
+      "title": "Roda de Conversa sobre Maternidade",
+      "description": "Encontro compartilha experiências de mães e discute o papel da mulher e mãe negra.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Enap promove roda de conversa sobre o Dia das Mães, 2025.",
+      "requirementIds": [
+        23,
+        25
+      ],
+      "mappingNotes": "R23 e R25 — sensibilização interna; não comprova programa permanente com recorte racial.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-promove-roda-de-conversa-sobre-o-dia-das-maes-com-compartilhamento-de-experiencias-entre-poderosas-mulheres/"
+    },
+    {
+      "id": 36,
+      "title": "Mulheres em Movimento: Vamos Todas Juntas",
+      "description": "Programação sobre direitos, teletrabalho, liderança, saúde das mulheres e violência de gênero.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Vitrine Enap, curso/evento 1185, março de 2021. Evidência histórica.",
+      "requirementIds": [
+        23,
+        28,
+        37
+      ],
+      "mappingNotes": "R23, R28 e R37 — contribuição histórica; continuidade atual a verificar.",
+      "source": "https://suap.enap.gov.br/vitrine/curso/1185/"
+    },
+    {
+      "id": 37,
+      "title": "Gênero e Raça nas Comunicações Públicas",
+      "description": "Curso e palestra promovem análise crítica de imagens e conteúdos para comunicação inclusiva.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia oficial sobre abertura do curso, 2024.",
+      "requirementIds": [
+        28,
+        29,
+        30
+      ],
+      "mappingNotes": "R28 — evidência; R29 e R30 — contribuição formativa, adoção interna a verificar.",
+      "source": "https://www.enap.gov.br/acontece/noticias/palestra-marca-inicio-do-curso-genero-e-raca-nas-comunicacoes-publicas-na-enap/"
+    },
+    {
+      "id": 38,
+      "title": "Orientações de Linguagem Simples e Não Sexista",
+      "description": "Apostila orienta evitar termos discriminatórios e sexistas na comunicação pública.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Apostila do curso Linguagem Simples no Setor Público, publicada pela Enap.",
+      "requirementIds": [
+        29
+      ],
+      "mappingNotes": "R29 — orientação pedagógica; juntar diretriz e amostras institucionais para comprovar adoção.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/6181/1/Apostila%20do%20curso%20Linguagem%20Simples%20no%20Setor%20Pu%CC%81blico.pdf"
+    },
+    {
+      "id": 39,
+      "title": "Guia de Oficinas Virtuais com Linguagem Inclusiva",
+      "description": "Material orienta respeito ao nome social e aos pronomes e uso de expressões inclusivas.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Mini Guia Como fazer oficinas virtuais de Linguagem Simples.",
+      "requirementIds": [
+        29,
+        32
+      ],
+      "mappingNotes": "R29 — orientação; R32 — contribuição ao respeito à identidade.",
+      "source": "https://repositorio.enap.gov.br/bitstream/1/7696/2/Mini%20Guia%20Como%20fazer%20oficinas%20virtuais%20de%20Linguagem%20Simples.pdf"
+    },
+    {
+      "id": 40,
+      "title": "Enap em Órbita sobre Raça e Gênero",
+      "description": "Debate com especialistas em inclusão, desigualdades e participação social.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Enap em Órbita debate inclusão e diversidade de raça e gênero, 06/06/2023.",
+      "requirementIds": [
+        26,
+        28,
+        37
+      ],
+      "mappingNotes": "R26 — exemplo de composição; R28 e R37 — sensibilização pública.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-em-orbita-debate-inclusao-e-diversidade-de-raca-e-genero-no-setor-publico/"
+    },
+    {
+      "id": 41,
+      "title": "Encontro Latino-Americano de Igualdade de Gênero",
+      "description": "Evento com Enap, MGI, CLAD, CAF e ONU Mulheres para troca de experiências de paridade.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Vitrine Enap, evento 2486, programação e parceiros.",
+      "requirementIds": [
+        26,
+        35,
+        37
+      ],
+      "mappingNotes": "R26 — programação temática; R35 e R37 — evidência; critério geral de mesas a verificar.",
+      "source": "https://suap.enap.gov.br/vitrine/curso/2486/"
+    },
+    {
+      "id": 42,
+      "title": "Participação da Enap na Rede Equidade",
+      "description": "Integra rede pública para compartilhar práticas e ações de diversidade, gênero e raça.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página Quem somos da Rede Equidade, Congresso Nacional, lista de instituições.",
+      "requirementIds": [
+        35,
+        16
+      ],
+      "mappingNotes": "R35 — parceria comprovada; R16 — adesão não comprova reporte de resultados.",
+      "source": "https://www.congressonacional.leg.br/en/institucional/rede-equidade/quem-somos"
+    },
+    {
+      "id": 43,
+      "title": "Guia Diversidade no Setor Público",
+      "description": "Publicação da Escola organiza orientações para uma gestão inclusiva e representativa.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Repositório Enap, Guia Diversidade no Setor Público, 2024.",
+      "requirementIds": [
+        14,
+        28,
+        32,
+        33
+      ],
+      "mappingNotes": "R14, R28, R32 e R33 — disseminação de conhecimento.",
+      "source": "https://repositorio.enap.gov.br/handle/1/8074"
+    },
+    {
+      "id": 44,
+      "title": "Cátedras Negras: Pesquisa Aplicada",
+      "description": "Parceria com o MIR produz conhecimento sobre práticas inclusivas e igualdade racial.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Sou Enap e apresentação institucional das iniciativas, 2025.",
+      "requirementIds": [
+        15,
+        32,
+        35,
+        25
+      ],
+      "mappingNotes": "R15, R32 e R35 — produção e divulgação; R25 — valorização acadêmica, não política laboral.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-reune-colaboradores-para-falar-sobre-resultados-iniciativas-e-lancar-novidades-da-instituicao/"
+    },
+    {
+      "id": 45,
+      "title": "Seminário Cátedras Negras sobre Reparação e Direitos",
+      "description": "Evento aborda convenção antirracismo, direitos constitucionais e igualdade racial.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Vitrine Enap, Seminário Cátedras Negras, curso 3063.",
+      "requirementIds": [
+        32,
+        37
+      ],
+      "mappingNotes": "R32 e R37 — defesa de direitos e sensibilização.",
+      "source": "https://suap.enap.gov.br/vitrine/curso/3063/"
+    },
+    {
+      "id": 46,
+      "title": "Empreendedoras Tech",
+      "description": "Programa apoia negócios tecnológicos liderados por mulheres mediante formação e mentoria.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página oficial de desafios e descrição da 2ª edição, parceria MDIC, Sebrae e Impact Hub.",
+      "requirementIds": [
+        32,
+        35,
+        36
+      ],
+      "mappingNotes": "R32, R35 e R36 — impacto social; R36 parcial, não caracteriza por si ação solidária.",
+      "source": "https://desafios.enap.gov.br/index.php/pt/busca/desafios?start=20"
+    },
+    {
+      "id": 47,
+      "title": "Programa de Desenvolvimento Inicial",
+      "description": "Formação de novos servidores aborda igualdade, diversidade e organização democrática do Estado.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página oficial do PDI, parceria com MGI e descrição dos eixos.",
+      "requirementIds": [
+        21,
+        32,
+        33,
+        35
+      ],
+      "mappingNotes": "R21, R32, R33 e R35 — formação finalística.",
+      "source": "https://www.enap.gov.br/educacao-e-capacitacao/programa-de-desenvolvimento-inicial-pdi/"
+    },
+    {
+      "id": 48,
+      "title": "Rotas para Acessibilidade",
+      "description": "Guia institucional reúne normas e práticas para inclusão em cursos e eventos.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página Fundamentos e Normas de Acessibilidade.",
+      "requirementIds": [
+        20,
+        28,
+        32
+      ],
+      "mappingNotes": "R20, R28 e R32 — diversidade e acessibilidade; não substitui comprovação de gênero e raça.",
+      "source": "https://www.enap.gov.br/educacao-e-capacitacao/rotas/fundamentos-e-normas-de-acessibilidade/"
+    },
+    {
+      "id": 49,
+      "title": "Encontro sobre Cotas nas Contratações Públicas",
+      "description": "Evento discute inclusão laboral de mulheres em situação de violência e contou com mesa formada por mulheres.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia Enap recebe encontro sobre Política de Cotas nas Contratações Públicas, 2024.",
+      "requirementIds": [
+        26,
+        37,
+        27
+      ],
+      "mappingNotes": "R26 e R37 — evidência; R27 — sensibilização, falta contrato da Enap com aplicação.",
+      "source": "https://www.enap.gov.br/acontece/noticias/enap-recebe-encontro-sobre-politica-de-cotas-nas-contratacoes-publicas/"
+    },
+    {
+      "id": 50,
+      "title": "Contratações de Instrutoria sobre Diversidade em 2026",
+      "description": "A transparência de contratações registra cursos sobre assédio, violência de gênero e liderança de mulheres negras.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página Inexigibilidade de licitação 2026, objetos contratados.",
+      "requirementIds": [
+        21,
+        31
+      ],
+      "mappingNotes": "R21 e R31 — evidência de contratação finalística; valores e dotação específica a conferir.",
+      "source": "https://www.enap.gov.br/acesso-a-informacao/licitacoes-e-contratos/inexigibilidade-de-licitacao/inexigibilidade-de-licita%C3%A7%C3%A3o-2026/"
+    },
+    {
+      "id": 51,
+      "title": "CPNU 2 com Inclusão e Ações Afirmativas",
+      "description": "Enap executa tecnicamente concurso nacional com medidas de inclusão e participação feminina.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia oficial Publicado edital do CPNU 2, 2025.",
+      "requirementIds": [
+        18,
+        32
+      ],
+      "mappingNotes": "R18 — ação externa, não comprova ingresso no quadro próprio da Enap; R32 — contribuição.",
+      "source": "https://www.enap.gov.br/acontece/noticias/publicado-edital-do-cpnu-2-com-3-652-vagas-e-foco-em-inclusao-seguranca-e-modernizacao-do-servico-publico/"
+    },
+    {
+      "id": 52,
+      "title": "ENAPessoas e Painéis de Gestão de Pessoas",
+      "description": "Plataforma e painéis acompanham indicadores da força de trabalho.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Relatório de Gestão 2024, seção Enapessoas.",
+      "requirementIds": [
+        17
+      ],
+      "mappingNotes": "R17 — contribuição tecnológica; não comprova série contínua por gênero e raça.",
+      "source": "https://enap.gov.br/docs/160/DIREX_RELATORIO_DE_GESTAO_2024_v3_1.pdf"
+    },
+    {
+      "id": 53,
+      "title": "SOS Rio Grande do Sul na Rede InovaGov",
+      "description": "Campanha solidária e acompanhamento de resultados com metodologia de OKR.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Iniciativa OKR de Corpo e Alma SOS Rio Grande do Sul, Rede InovaGov.",
+      "requirementIds": [
+        36
+      ],
+      "mappingNotes": "R36 — ação solidária; recortes de gênero e raça não demonstrados.",
+      "source": "https://inovagov.enap.gov.br/quemsomos/iniciativas/78"
+    },
+    {
+      "id": 54,
+      "title": "Semana de Inovação com Diversidade e Inclusão",
+      "description": "Programação pública inclui debates sobre gênero, raça, inclusão e cuidados.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Notícia de encerramento da Semana de Inovação 2024.",
+      "requirementIds": [
+        26,
+        35,
+        37
+      ],
+      "mappingNotes": "R26 — exemplos na programação; R35 e R37 — evento e parcerias.",
+      "source": "https://edicoesanteriores.enap.gov.br/index.php/pt/allcategories-pt-br/news-2024/enap-encerra-semana-de-inovacao-de-2024-e-anuncia-tema-da-edicao-de-2025-em-torno-do-meio-ambiente"
+    },
+    {
+      "id": 55,
+      "title": "Plano de Desenvolvimento de Pessoas 2026",
+      "description": "A Enap disponibiliza publicamente seu PDP, referência para verificar capacitação da equipe.",
+      "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
+      "evidence": "Página oficial com acesso ao PDP 2026. Conteúdo temático e execução ainda precisam ser confrontados.",
+      "requirementIds": [
+        13,
+        21,
+        31
+      ],
+      "mappingNotes": "R13, R21 e R31 — documento de verificação; publicação sozinha não comprova atendimento.",
+      "source": "https://www.enap.gov.br/acesso-a-informacao/acoes-e-programas/pol%C3%ADtica-nacional-de-desenvolvimento-de-pessoas-pndp/"
+    }
+  ]
+}
