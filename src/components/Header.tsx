@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       <div className="bg-[#6D4AFF] text-white">
         <div className="mx-auto flex min-h-[62px] max-w-[1440px] items-center gap-4 px-4 pl-[76px] lg:px-6 lg:pl-[76px]">
-          <a href="#inicio" className="flex min-w-0 items-center gap-4 rounded-sm py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="PQVT Enap - Página inicial">
+          <a href="/#inicio" className="flex min-w-0 items-center gap-4 rounded-sm py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="PQVT Enap - Página inicial">
             <div className="flex h-10 w-[86px] shrink-0 items-center overflow-hidden">
               <img src={ENAP_LOGO_URL} alt="Enap" className="max-h-10 w-auto max-w-[86px] object-contain object-left brightness-0 invert" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
             </div>
@@ -136,7 +136,7 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
 
-            <a href="#servicos" className="hidden items-center gap-1 rounded-sm px-2 py-2 text-xs font-medium text-white hover:bg-white/10 lg:flex">
+            <a href="/#servicos" className="hidden items-center gap-1 rounded-sm px-2 py-2 text-xs font-medium text-white hover:bg-white/10 lg:flex">
               <HeartHandshake className="h-4 w-4 text-white" /><span>Serviços</span>
             </a>
             <button className="flex h-9 w-9 items-center justify-center rounded-sm text-[#605B66] hover:bg-[#F5F3F7] sm:hidden" aria-label="Pesquisar" onClick={onOpenSearch}><Menu className="h-4 w-4" /></button>

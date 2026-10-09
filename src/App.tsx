@@ -49,6 +49,9 @@ import { AlertCircle, CheckCircle, Info, UserCheck, ShieldAlert } from 'lucide-r
 export default function App() {
   const [isIdePage, setIsIdePage] = useState(() => window.location.pathname === '/praticas-ide');
   useEffect(() => {
+    document.title = isIdePage ? 'Práticas IDE da Enap | PQVT · COGEM' : 'PQVT — Portal de Qualidade de Vida no Trabalho | COGEM Conecta · Enap';
+  }, [isIdePage]);
+  useEffect(() => {
     const syncPage = () => {
       if (window.location.hash === '#praticas-ide') window.history.replaceState(null, '', '/praticas-ide');
       const ide = window.location.pathname === '/praticas-ide';

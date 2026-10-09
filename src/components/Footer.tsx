@@ -29,12 +29,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenSharePointSpecs }) => (
         <div className="lg:col-span-3">
           <h4 className="mb-3 text-[10px] font-bold uppercase tracking-[0.14em] text-white/80">Navegação</h4>
           <div className="grid gap-2 text-xs text-white/60">
-            <a href="#acontece-agora" className="hover:text-white">Plano PQVT 2026</a>
-            <a href="#atividades" className="hover:text-white">Atividades</a>
-            <a href="#servicos" className="hover:text-white">Serviços</a>
-            <a href="#noticias" className="hover:text-white">Notícias</a>
-            <a href="#guias" className="hover:text-white">Documentos</a>
-            <a href="#comunidade" className="hover:text-white">Comunidades</a>
+            <a href="/#acontece-agora" className="hover:text-white">Plano PQVT 2026</a>
+            <a href="/#atividades" className="hover:text-white">Atividades</a>
+            <a href="/#servicos" className="hover:text-white">Serviços</a>
+            <a href="/#noticias" className="hover:text-white">Notícias</a>
+            <a href="/#guias" className="hover:text-white">Documentos</a>
+            <a href="/#comunidade" className="hover:text-white">Comunidades</a>
           </div>
         </div>
 
