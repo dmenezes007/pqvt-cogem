@@ -95,3 +95,45 @@
 
 .ide-download { border: 1px solid #D3C7FA; border-radius: 6px; background: #F0ECFF; color: #5B3DE0; padding: 9px 14px; font-size: 12px; font-weight: 600; }
 .ide-download:hover { background: #E5DDFF; }
+
+/* Rede Equidade: autoavaliação e correlação com práticas */
+.ide-assessment-metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:24px 0; }
+.ide-assessment-metrics>div { padding:18px; border:1px solid #E5E0F1; border-radius:12px; background:#FAF8FF; }
+.ide-assessment-metrics strong { display:block; color:#5B3DE0; font-size:28px; line-height:1.3; }
+.ide-assessment-metrics span { display:block; margin-top:5px; font-size:12px; color:#5F5A65; }
+.ide-assessment-charts { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:24px; }
+.ide-chart-card { border:1px solid #E1DFE5; border-radius:12px; padding:22px; min-width:0; }
+.ide-chart-card h3 { font-weight:700; font-size:15px; }
+.ide-chart-card p { font-size:12px; line-height:1.6; color:#6F6B75; margin-top:7px; }
+.ide-chart-legend { display:flex; flex-wrap:wrap; gap:16px; margin:20px 0; font-size:11px; }
+.ide-chart-legend span { display:flex; align-items:center; gap:6px; }
+.ide-chart-legend i { width:10px; height:10px; border-radius:3px; display:inline-block; }
+.ide-chart-row { margin-top:18px; font-size:12px; }
+.ide-stacked-bar { display:flex; border-radius:8px; overflow:hidden; height:32px; margin-top:8px; }
+.ide-stacked-bar button { font-size:12px; font-weight:700; cursor:pointer; min-width:0; }
+.ide-stacked-bar button:hover { filter:brightness(.94); }
+.ide-stacked-bar button:focus-visible { outline:3px solid #17151D; outline-offset:-3px; }
+.ide-bar-yes { background:#007A80; color:white; }
+.ide-bar-no { background:#DCD3F9; color:#493290; }
+.ide-bar-blank { background:#E9E8ED; color:#5F5A65; }
+.ide-dimension-chart { display:block; width:100%; text-align:left; padding:14px 0; cursor:pointer; border-bottom:1px solid #EEEAF4; }
+.ide-dimension-chart strong,.ide-dimension-chart>span { display:block; font-size:11px; }
+.ide-dimension-chart>span { margin-top:5px; color:#6F6B75; }
+.ide-dimension-chart:hover strong { color:#5B3DE0; }
+.ide-dimension-track { background:#F0ECFF; height:9px; border-radius:9px; overflow:hidden; }
+.ide-dimension-track span { background:#8E75E8; height:100%; display:block; border-radius:9px; }
+.ide-assessment-filters { display:grid; grid-template-columns:1.5fr 1.3fr 1fr 1fr; gap:14px; }
+.ide-assessment-table th:nth-child(2) { width:48%; }
+.ide-assessment-table th:nth-child(3) { width:auto; }
+.ide-assessment-table td { vertical-align:middle; }
+.ide-answer { display:inline-block; border-radius:8px; padding:5px 8px; font-size:11px; white-space:nowrap; }
+.ide-answer-yes { background:#EFFBF7; color:#007A80; border:1px solid #9BE4D6; }
+.ide-answer-no { background:#F0ECFF; color:#493290; border:1px solid #DCD3F9; }
+.ide-answer-blank { background:#F5F4F7; color:#6F6B75; border:1px solid #E1DFE5; }
+.ide-related { padding:20px; }
+.ide-related-card { background:white; border:1px solid #E1DFE5; border-radius:12px; padding:18px; margin-top:14px; font-size:13px; line-height:1.6; }
+.ide-related-card h4 { font-weight:700; margin-bottom:10px; }
+.ide-related-card p,.ide-related-card .ide-note { margin-top:8px; }
+.ide-related-card .ide-source { margin-top:10px; }
+@media(max-width:900px) { .ide-assessment-charts { grid-template-columns:1fr; } .ide-assessment-filters,.ide-assessment-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); } .ide-assessment-table { min-width:850px; } }
+@media(max-width:600px) { .ide-assessment-filters { grid-template-columns:1fr; } .ide-chart-card { padding:16px; } .ide-assessment-metrics>div { padding:14px; } .ide-related { padding:8px; } }

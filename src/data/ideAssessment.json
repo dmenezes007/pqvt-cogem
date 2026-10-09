@@ -1,0 +1,423 @@
+{
+  "source": "Planilha Modelo IDE ENAP.xlsx",
+  "requirements": [
+    {
+      "id": 1,
+      "text": "1. O Planejamento Estratégico da Instituição prevê na sua missão, visão, valores organizacionais ou nos objetivos estratégicos a temática da diversidade, equidade e inclusão?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 2,
+      "text": "2. Possui política/compromisso formalmente instituído para a promoção de equidade e inclusão de gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 3,
+      "text": "3. Possui um programa/projeto/plano de ação estruturado para a gestão da diversidade com foco em gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 4,
+      "text": "4. Possui política/compromisso formal voltado ao combate à discriminação e ao desrespeito a direitos relacionados a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 5,
+      "text": "5. Possui um programa estruturado para a prevenção da discriminação e do desrespeito a direitos relacionados a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 6,
+      "text": "6. Adota protocolos pré-estabelecidos e divulgados internamente para o tratamento de denúncias de discriminação e de desrespeito a direitos relacionados a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 7,
+      "text": "7. Na elaboração de processos, produtos e/ou serviços inovadores na instituição, o público-alvo é consultado nas fases de entendimento do problema, validação da solução escolhida, prototipagem e teste, considerando-se, para a seleção do grupo de consulta, a diversidade quanto à raça e ao gênero?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sem resposta",
+        "Raça": "Sem resposta"
+      }
+    },
+    {
+      "id": 8,
+      "text": "8. Há instâncias especializadas para a promoção da temática de diversidade e inclusão de gênero e raça na instituição (comitês, comissões e/ou unidades especializadas)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 9,
+      "text": "9. Há instâncias para apurar, de forma qualificada, a discriminação e o desrespeito a direitos relacionados a gênero e raça (comitês, comissões e/ou unidades especializadas)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "ESTRATÉGIA",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 10,
+      "text": "10. A alta administração apoia e dá suporte à agenda institucional de promoção de equidade e inclusão de gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 11,
+      "text": "11. Há critério de diversidade de gênero e/ou raça para composição de grupos de governança (conselhos, comitês, comissões, grupos de trabalho)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sem resposta",
+        "Raça": "Sem resposta"
+      }
+    },
+    {
+      "id": 12,
+      "text": "12. A organização observa critérios de diversidade de gênero e raça na designação de cargos de chefia?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 13,
+      "text": "13. A capacitação continuada de gestores e lideranças da instituição contempla aspectos de inclusão da diversidade com foco em gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "LIDERANÇA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 14,
+      "text": "14. As diretrizes de gestão e documentos relativos à promoção da equidade e inclusão de gênero e raça estão disponíveis para livre acesso ao público interno e externo?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 15,
+      "text": "15. Há divulgação periódica para a sociedade das iniciativas e resultado adotados pela instituição pertinentes ao tema equidade e inclusão de gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 16,
+      "text": "16. A instituição apresenta os resultados de suas políticas sobre equidade e inclusão de gênero e raça à órgão ou entidade externa (Órgão de controle, CNJ, CNMP, TCU, OIT, AUDIN, etc.)?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 17,
+      "text": "17. A instituição monitora de forma estruturada e contínua a diversidade da força de trabalho quanto a gênero e raça?",
+      "dimension": "I - GOVERNANÇA E ESTRATÉGIA",
+      "theme": "CONTROLE/ACCOUNTABILITY",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 18,
+      "text": "18. Há sistema de cotas para gênero e raça no ingresso da instituição?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 19,
+      "text": "19. Há critério de diversidade de gênero e/ou raça para designação de funções ou cargos comissionados?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 20,
+      "text": "20. A oferta e a participação nas capacitações observam critérios de diversidade de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 21,
+      "text": "21. Há investimentos anuais para a capacitação e sensibilização da força de trabalho na temática de equidade e inclusão de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 22,
+      "text": "22. Há serviço especializado para acolhimento às vítimas de discriminação e aos direitos relacionados a gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 23,
+      "text": "23. Há programas de promoção da saúde e qualidade de vida no trabalho com recorte de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 24,
+      "text": "24.  Há,  na  instituição,  política  de  benefícios  que  contemple  e  promova  a equidade e inclusão de gênero e raça.",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 25,
+      "text": "25. Há iniciativas práticas voltadas ao reconhecimento e valorização dos trabalhadores (as) considerando critério da diversidade com foco em gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 26,
+      "text": "26. A instituição adota o critério de representatividade de gênero e raça na composição das mesas de eventos institucionais (celebração e capacitação)?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE PESSOAS",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 27,
+      "text": "27. Existem critérios de contratação de prestação de serviços e outros que contemplam gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO DE CONTRATAÇÕES",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Não",
+        "Raça": "Não"
+      }
+    },
+    {
+      "id": 28,
+      "text": "28. Existem ações de comunicação inclusiva que contemplem questões de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "COMUNICAÇÃO",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 29,
+      "text": "29. A instituição adota linguagem inclusiva, não sexista e flexão de gênero na comunicação?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "COMUNICAÇÃO",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 30,
+      "text": "30. A instituição adota critério da diversidade no uso de imagens para campanhas?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "COMUNICAÇÃO",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 31,
+      "text": "31. Há previsão orçamentária para ações voltadas à implementação da política de equidade e inclusão de gênero e raça?",
+      "dimension": "II - GESTÃO INCLUSIVA",
+      "theme": "GESTÃO ORÇAMENTÁRIA",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 32,
+      "text": "32. Há iniciativas implementadas pela instituição que contemplam a defesa dos direitos humanos?",
+      "dimension": "III - SOCIAL",
+      "theme": "DIREITOS HUMANOS",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 33,
+      "text": "33. A instituição promove a cultura da integridade visando garantir o respeito e a valorização da diversidade?",
+      "dimension": "III - SOCIAL",
+      "theme": "DIREITOS HUMANOS",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 34,
+      "text": "34. Há normatização e/ou orientação do uso do banheiro para pessoas transexuais/transgênerona instituição?",
+      "dimension": "III - SOCIAL",
+      "theme": "DIREITOS HUMANOS",
+      "answers": {
+        "Diversidade": "Sim",
+        "Gênero": "—",
+        "Raça": "—"
+      }
+    },
+    {
+      "id": 35,
+      "text": "35. Foram firmadas parcerias qualificadas para tratar das temáticas de gênero e raça com outras instituições públicas, organismos internacionais e/ou sociedade organizada (OSCIP, associações, etc.)?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM SOCIEDADE",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sem resposta",
+        "Raça": "Sem resposta"
+      }
+    },
+    {
+      "id": 36,
+      "text": "36. Há atividades voltadas à integração da instituição com a comunidade para a promoção de ações solidárias que contemplem aspectos da diversidade com foco em gênero e raça?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM SOCIEDADE",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sem resposta",
+        "Raça": "Sem resposta"
+      }
+    },
+    {
+      "id": 37,
+      "text": "37. Há a promoção de eventos e sensibilização que abordem a temática de equidade e inclusão de gênero e raça para a comunidade?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM SOCIEDADE",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sim",
+        "Raça": "Sim"
+      }
+    },
+    {
+      "id": 38,
+      "text": "38. Há variáveis relacionadas à gênero e a raça nos documentos e formulários destinados ao atendimento e manifestação da cidadã usuária ou do cidadão usuário?",
+      "dimension": "III - SOCIAL",
+      "theme": "RELAÇÃO COM USUÁRIO/CONSUMIDOR",
+      "answers": {
+        "Diversidade": "—",
+        "Gênero": "Sem resposta",
+        "Raça": "Sem resposta"
+      }
+    }
+  ]
+}

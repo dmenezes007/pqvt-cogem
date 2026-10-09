@@ -11,6 +11,7 @@ import { KnowledgeSection } from './components/KnowledgeSection';
 import { CommunitySection } from './components/CommunitySection';
 import { ContinuousCycleSection } from './components/ContinuousCycleSection';
 import { IndicatorsSection } from './components/IndicatorsSection';
+import { IdeAdherenceSection } from './components/IdeAdherenceSection';
 import { IdePracticesSection } from './components/IdePracticesSection';
 import { AboutSection } from './components/AboutSection';
 import { CtaSection } from './components/CtaSection';
@@ -160,6 +161,7 @@ export default function App() {
         <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
           {isIdePage ? <>
             <IdePracticesSection />
+            <IdeAdherenceSection />
           </> : <>
           <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
             <div className="min-w-0 space-y-5">
