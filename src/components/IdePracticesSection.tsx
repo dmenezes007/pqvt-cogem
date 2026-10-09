@@ -6,13 +6,6 @@ const requirements = new Map(data.requirements.map((item) => [item.id, item]));
 const dimensions = [...new Set(data.requirements.map((item) => item.dimension))];
 const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('pt-BR');
 
-function requirementColor(id: number): React.CSSProperties {
-  // Stable tones within the portal's purple, green and warm accent palette.
-  const baseHues = [258, 270, 245, 155, 18];
-  const hue = baseHues[(id - 1) % baseHues.length] + Math.floor((id - 1) / baseHues.length) * 2;
-  return { backgroundColor: `hsl(${hue} 65% 96%)`, borderColor: `hsl(${hue} 48% 78%)`, color: `hsl(${hue} 42% 28%)` };
-}
-
 export function IdePracticesSection() {
   const [query, setQuery] = useState('');
   const [requirement, setRequirement] = useState('');
@@ -48,6 +41,11 @@ export function IdePracticesSection() {
   const hasFilters = Boolean(query || requirement || dimension);
 
   return <section id="praticas-ide" className="sp-card scroll-mt-44 p-5 sm:p-8" aria-labelledby="ide-title">
+    <div className="mb-4 flex flex-wrap justify-end gap-2" aria-label="Downloads de práticas">
+      <a className="ide-download" href="/downloads/praticas-ide-enap.xlsx" download>Baixar XLSX</a>
+      <a className="ide-download" href="/downloads/praticas-ide-enap.csv" download>Baixar CSV</a>
+    </div>
+    <p className="mb-4 text-right text-xs text-[#6F6B75]">Downloads incluem as 55 práticas.</p>
     <div className="mb-5 flex items-start gap-3">
       <div className="rounded-lg bg-[#F0ECFF] p-3 text-[#5B3DE0]"><SlidersHorizontal aria-hidden="true" className="h-5 w-5" /></div>
       <div><p className="sp-section-label">Diversidade, equidade e inclusão</p><h1 id="ide-title" className="mt-1 text-2xl font-bold">Práticas IDE da Enap</h1><p className="mt-2 text-sm text-[#5F5A65]">Pesquise, combine filtros e expanda cada prática para consultar sua descrição e evidência.</p></div>
@@ -70,11 +68,11 @@ export function IdePracticesSection() {
         return <Fragment key={practice.id}><tr className={`ide-summary ${open ? 'ide-open' : ''}`} onClick={() => toggle(practice.id)}>
           <td className="whitespace-nowrap tabular-numbers">{String(practice.id).padStart(2, '0')}</td>
           <th scope="row"><button className="ide-expand" aria-expanded={open} aria-controls={`ide-detail-${practice.id}`} onClick={(event) => { event.stopPropagation(); toggle(practice.id); }}>{open ? <ChevronDown aria-hidden="true" /> : <ChevronRight aria-hidden="true" />}<span>{practice.title}</span><span className="sr-only"> — {open ? 'Recolher' : 'Expandir'} detalhes</span></button></th>
-          <td><ul className="ide-requirements">{linked.map((item) => <li key={item.id} className="ide-tag" style={requirementColor(item.id)}>{item.text}</li>)}</ul></td>
+          <td><ul className="ide-requirements">{linked.map((item) => <li key={item.id} className="ide-tag">{item.text}</li>)}</ul></td>
           <td><a className="ide-source" href={practice.source} target="_blank" rel="noopener noreferrer">Consultar fonte<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /><span className="sr-only"> de {practice.title} (nova aba)</span></a></td>
         </tr><tr hidden={!open} id={`ide-detail-${practice.id}`}><td colSpan={4} className="ide-detail-cell">{open ? <article className="ide-detail" aria-label={`Detalhes de ${practice.title}`}>
           <div className="ide-cover" aria-hidden="true"><img src="/enap-logo.png" alt="" className="ide-enap-logo" /><strong>IDE</strong><span>Inclusão<br />Diversidade<br />Equidade</span><small>Prática {String(practice.id).padStart(2, '0')}</small></div>
-          <div className="min-w-0 space-y-2"><h3 className="font-bold"><span>Título: </span>{practice.title}</h3><p><strong>Descrição: </strong>{practice.description}</p><p><strong>Órgão: </strong>{practice.organization}</p><p><strong>Norma/Evidência: </strong>{practice.evidence}</p><div><strong>Requisitos Modelo IDE:</strong><ul className="mt-2 space-y-2">{linked.map((item) => <li key={item.id} className="ide-tag" style={requirementColor(item.id)}>{item.text}</li>)}</ul></div><p><strong>Mais informações: </strong><a className="break-all" href={practice.source} target="_blank" rel="noopener noreferrer">{practice.source}<span className="sr-only"> (nova aba)</span></a></p><div className="ide-note"><strong>Observações: </strong>{practice.mappingNotes}</div></div>
+          <div className="min-w-0 space-y-2"><h3 className="font-bold"><span>Título: </span>{practice.title}</h3><p><strong>Descrição: </strong>{practice.description}</p><p><strong>Órgão: </strong>{practice.organization}</p><p><strong>Norma/Evidência: </strong>{practice.evidence}</p><div><strong>Requisitos Modelo IDE:</strong><ul className="mt-2 space-y-2">{linked.map((item) => <li key={item.id} className="ide-tag">{item.text}</li>)}</ul></div><p><strong>Mais informações: </strong><a className="break-all" href={practice.source} target="_blank" rel="noopener noreferrer">{practice.source}<span className="sr-only"> (nova aba)</span></a></p><div className="ide-note"><strong>Observações: </strong>{practice.mappingNotes}</div></div>
         </article> : null}</td></tr></Fragment>;
       })}{filtered.length === 0 ? <tr><td colSpan={4} className="py-10 text-center">Nenhuma prática encontrada. Ajuste a pesquisa ou limpe os filtros.</td></tr> : null}</tbody></table>
     </div>

@@ -4,11 +4,9 @@ import { Home, CalendarDays, HeartHandshake, Newspaper, BookOpen, Users, BarChar
 interface NavigationProps {
   activeSection: string;
   onNavigate: (sectionId: string) => void;
-  registeredCount: number;
-  onOpenMyRegistrations: () => void;
 }
 
-export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigate, registeredCount, onOpenMyRegistrations }) => {
+export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigate }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
@@ -30,7 +28,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
   };
 
   return (
-    <nav className="sticky top-[110px] z-40 border-b border-[#E1DFE5] bg-white" aria-label="Navegação do site PQVT"><div className="lg:ml-[60px]">
+    <nav className="sticky top-[62px] z-40 border-b border-[#E1DFE5] bg-white" aria-label="Navegação do site PQVT"><div className="">
       <div className="mx-auto flex min-h-[48px] max-w-[1440px] items-center px-4 lg:px-6">
         <div className="hidden min-w-0 flex-1 items-center overflow-x-auto md:flex no-scrollbar">
           {navItems.map((item) => {
@@ -48,12 +46,6 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
         </div>
 
         <div className="ml-auto flex shrink-0 items-center gap-2 pl-2">
-          <button onClick={onOpenMyRegistrations}
-            className={`flex h-9 items-center gap-1.5 rounded-sm border px-3 text-[11px] font-semibold transition-colors ${registeredCount > 0 ? 'border-[#B7E5D0] bg-[#F0FBF5] text-[#087F5B]' : 'border-[#E1DFE5] bg-white text-[#5F5A65] hover:bg-[#F7F6F8]'}`}>
-            <Ticket className="h-3.5 w-3.5" />
-            <span className="hidden lg:inline">Minhas inscrições</span>
-            {registeredCount > 0 && <span className="flex h-4 min-w-4 items-center justify-center rounded-full bg-[#087F5B] px-1 text-[9px] text-white">{registeredCount}</span>}
-          </button>
           <button onClick={() => setMobileMenuOpen((open) => !open)}
             className="flex h-9 w-9 items-center justify-center rounded-sm border border-[#E1DFE5] text-[#5F5A65] hover:bg-[#F7F6F8] md:hidden"
             aria-label="Abrir navegação" aria-expanded={mobileMenuOpen}>

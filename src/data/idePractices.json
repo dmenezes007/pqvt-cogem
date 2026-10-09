@@ -276,11 +276,11 @@
       "title": "Representatividade na Composição do Comitê de Diversidades, Equidade e Inclusão",
       "description": "A composição deve buscar representatividade de gênero, etnia, raça e outras dimensões. O critério alcança este colegiado.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "Portaria Enap nº 40/2024, art. 8º. Confirmar aplicação no ato de designação.",
+      "evidence": "Portaria Enap nº 40/2024, art. 8º.",
       "requirementIds": [
         11
       ],
-      "mappingNotes": "R11 — critério formal para o Comitê; não demonstra aplicação a todos os colegiados.",
+      "mappingNotes": "R11 — critério formal para o Comitê; não demonstra aplicação a todos os colegiados. Confirmar aplicação no ato de designação.",
       "source": "https://repositorio.enap.gov.br/handle/1/7958"
     },
     {
@@ -288,7 +288,7 @@
       "title": "Plano Anual e Diagnósticos de Diversidades",
       "description": "O Comitê deve estruturar plano anual, realizar diagnósticos e acompanhar implementação e atividades.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "Portaria Enap nº 40/2024, art. 4º, II, III, VI e IX. Competência prevista; execução depende dos documentos anuais.",
+      "evidence": "Portaria Enap nº 40/2024, art. 4º, II, III, VI e IX.",
       "requirementIds": [
         3,
         15,
@@ -330,12 +330,12 @@
       "title": "Formulário Inclusivo do Banco de Colaboradores",
       "description": "Formulário público registra autodeclaração racial e opção por vagas reservadas para pessoas negras e indígenas.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "Chamada Pública Simplificada nº 225, formulário oficial, seções 4 e 6. Verificar vigência pelo edital associado.",
+      "evidence": "Chamada Pública Simplificada nº 225, formulário oficial, seções 4 e 6.",
       "requirementIds": [
         38,
         20
       ],
-      "mappingNotes": "R38 — evidência racial no atendimento à seleção; R20 — seleção de docentes, contribuição.",
+      "mappingNotes": "R38 — evidência racial no atendimento à seleção; R20 — seleção de docentes, contribuição. Verificar vigência pelo edital associado.",
       "source": "https://centraldeinscricoes.enap.gov.br/chamada-publica-225/"
     },
     {
@@ -357,13 +357,13 @@
       "title": "Fluxo de Tratamento de Denúncias do PSEAD",
       "description": "Define públicos, salvaguardas, responsabilidades e procedimentos de registro e apuração.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "PSEAD/Enap 2026, seção de tratamento da denúncia, pp. 34–46. Confirmar divulgação interna e execução.",
+      "evidence": "PSEAD/Enap 2026, seção de tratamento da denúncia, pp. 34–46.",
       "requirementIds": [
         6,
         9,
         22
       ],
-      "mappingNotes": "R06 e R09 — protocolo documentado; R22 — contribuição.",
+      "mappingNotes": "R06 e R09 — protocolo documentado; R22 — contribuição. Confirmar divulgação interna e execução.",
       "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
     },
     {
@@ -371,7 +371,7 @@
       "title": "Núcleo e Rede de Acolhimento no PSEAD",
       "description": "Prevê criação de núcleo, formação das equipes, canais acessíveis e acompanhamento.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "PSEAD/Enap 2026, pp. 27–33. Previsão estruturada; comprovar funcionamento.",
+      "evidence": "PSEAD/Enap 2026, pp. 27–33.",
       "requirementIds": [
         22
       ],
@@ -383,13 +383,13 @@
       "title": "Formação Interna e Saúde no PSEAD",
       "description": "Prevê capacitação de gestão e equipes, prevenção de riscos e promoção da saúde.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "PSEAD/Enap 2026, pp. 19–26. Juntar registros de participação e execução.",
+      "evidence": "PSEAD/Enap 2026, pp. 19–26.",
       "requirementIds": [
         13,
         21,
         23
       ],
-      "mappingNotes": "R13, R21 e R23 — previsão; verificar recortes e continuidade.",
+      "mappingNotes": "R13, R21 e R23 — previsão; verificar recortes e continuidade. Juntar registros de participação e execução.",
       "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
     },
     {
@@ -397,11 +397,11 @@
       "title": "Requisitos Contratuais no PSEAD",
       "description": "Prevê cláusulas e requisitos para docentes e serviços de mão de obra.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "PSEAD/Enap 2026, p. 22 e pp. 47–52. Conferir incorporação nos contratos.",
+      "evidence": "PSEAD/Enap 2026, p. 22 e pp. 47–52.",
       "requirementIds": [
         27
       ],
-      "mappingNotes": "R27 — previsão antidiscriminatória; não comprova reserva de contratação.",
+      "mappingNotes": "R27 — previsão antidiscriminatória; não comprova reserva de contratação. Conferir incorporação nos contratos.",
       "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
     },
     {
@@ -409,14 +409,14 @@
       "title": "Monitoramento, Comunicação e Reporte do PSEAD",
       "description": "Prevê indicadores, relatórios e comunicação anual para acompanhar o plano.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "PSEAD/Enap 2026, pp. 54–61. Confirmar relatórios efetivamente emitidos.",
+      "evidence": "PSEAD/Enap 2026, pp. 54–61.",
       "requirementIds": [
         15,
         16,
         17,
         28
       ],
-      "mappingNotes": "R15, R16, R17 e R28 — previsão; execução a comprovar.",
+      "mappingNotes": "R15, R16, R17 e R28 — previsão; execução a comprovar. Confirmar emissão dos relatórios.",
       "source": "https://repositorio.enap.gov.br/bitstream/1/9911/3/PSEAD.2026.pdf"
     },
     {
@@ -532,13 +532,13 @@
       "title": "Observatório de Programas Estratégicos",
       "description": "Portal público reúne iniciativas de formação antirracista, feminista e de cuidados.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "Observatório da Enap. Dados dinâmicos consultados em 09/10/2026.",
+      "evidence": "Observatório da Enap.",
       "requirementIds": [
         14,
         15,
         17
       ],
-      "mappingNotes": "R14 e R15 — transparência; R17 — não substitui dados da força de trabalho.",
+      "mappingNotes": "R14 e R15 — transparência; R17 — não substitui dados da força de trabalho. Dados dinâmicos consultados em 09/10/2026.",
       "source": "https://observatorio.enap.gov.br/"
     },
     {
@@ -725,7 +725,7 @@
       "title": "Mulheres em Movimento: Vamos Todas Juntas",
       "description": "Programação sobre direitos, teletrabalho, liderança, saúde das mulheres e violência de gênero.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "Vitrine Enap, curso/evento 1185, março de 2021. Evidência histórica.",
+      "evidence": "Vitrine Enap, curso/evento 1185, março de 2021.",
       "requirementIds": [
         23,
         28,
@@ -983,13 +983,13 @@
       "title": "Plano de Desenvolvimento de Pessoas 2026",
       "description": "A Enap disponibiliza publicamente seu PDP, referência para verificar capacitação da equipe.",
       "organization": "Fundação Escola Nacional de Administração Pública (Enap)",
-      "evidence": "Página oficial com acesso ao PDP 2026. Conteúdo temático e execução ainda precisam ser confrontados.",
+      "evidence": "Página oficial com acesso ao PDP 2026.",
       "requirementIds": [
         13,
         21,
         31
       ],
-      "mappingNotes": "R13, R21 e R31 — documento de verificação; publicação sozinha não comprova atendimento.",
+      "mappingNotes": "R13, R21 e R31 — documento de verificação; publicação sozinha não comprova atendimento. Verificar conteúdo temático e execução.",
       "source": "https://www.enap.gov.br/acesso-a-informacao/acoes-e-programas/pol%C3%ADtica-nacional-de-desenvolvimento-de-pessoas-pndp/"
     }
   ]

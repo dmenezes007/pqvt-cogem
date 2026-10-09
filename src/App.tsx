@@ -15,7 +15,6 @@ import { IdePracticesSection } from './components/IdePracticesSection';
 import { AboutSection } from './components/AboutSection';
 import { CtaSection } from './components/CtaSection';
 import { IntranetSidebar } from './components/IntranetSidebar';
-import { IntranetRail } from './components/IntranetRail';
 import { Footer } from './components/Footer';
 import {
   SearchModal,
@@ -26,7 +25,6 @@ import {
   ActionDetailModal,
   JoinCommunityModal,
   SharePointModal,
-  MyRegistrationsModal,
 } from './components/Modals';
 import {
   PillarType,
@@ -34,7 +32,6 @@ import {
   ServiceItem,
   NewsItem,
   KnowledgeDoc,
-  UserPersona,
 } from './types/pqvt';
 import {
   ACTIVITIES_CALENDAR,
@@ -64,7 +61,6 @@ export default function App() {
     return () => { window.removeEventListener('popstate', syncPage); window.removeEventListener('hashchange', syncPage); };
   }, []);
   // Application State
-  const [currentPersona, setCurrentPersona] = useState<UserPersona>('servidor');
   const [selectedPillar, setSelectedPillar] = useState<PillarType | null>(null);
   const [activeSection, setActiveSection] = useState<string>('inicio');
 
@@ -80,7 +76,6 @@ export default function App() {
   const [isActionDetailOpen, setIsActionDetailOpen] = useState(false);
   const [isJoinCommunityOpen, setIsJoinCommunityOpen] = useState(false);
   const [isSharePointModalOpen, setIsSharePointModalOpen] = useState(false);
-  const [isMyRegistrationsOpen, setIsMyRegistrationsOpen] = useState(false);
 
   // All docs collection for search
   const allDocs = [FEATURED_DOC09, ...OTHER_KNOWLEDGE_DOCS];
@@ -152,52 +147,18 @@ export default function App() {
     <div className="sp-page min-h-screen flex flex-col text-[#17151D]">
       
       {/* 1. Intranet Global Header */}
-      <Header
-        currentPersona={currentPersona}
-        onSelectPersona={setCurrentPersona}
-        onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenSharePointSpecs={() => setIsSharePointModalOpen(true)}
-        registeredCount={registeredActivities.length}
-      />
-
-      <IntranetRail onNavigate={scrollToSection} />
-
-      {/* Persona Context Banner (Provides adapted perspective without clutter) */}
-      {currentPersona !== 'servidor' && (
-        <div className="bg-[#17151D] text-white px-4 py-2 text-xs border-b border-[#2A2733] transition-colors">
-          <div className="max-w-7xl mx-auto flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <UserCheck className="w-4 h-4 text-[#C9E86A]" />
-              <span>
-                <strong>Modo {currentPersona === 'gestor' ? 'Liderança & Gestão' : 'Equipe PQVT / COGEM'}:</strong>{' '}
-                {currentPersona === 'gestor'
-                  ? 'Visualizando métricas de clima, pactuação de planos no PGD e acompanhamento das entregas da equipe.'
-                  : 'Modo de administração: acompanhamento do plano ACT-06, lista de inscritos e ciclo contínuo de melhoria.'}
-              </span>
-            </div>
-            <button
-              onClick={() => setCurrentPersona('servidor')}
-              className="text-[#C9E86A] hover:underline font-semibold text-[11px] shrink-0 ml-2"
-            >
-              Voltar à visão do servidor
-            </button>
-          </div>
-        </div>
-      )}
+      <Header onOpenSearch={() => setIsSearchOpen(true)} />
 
       {/* 2. Contextual Subnavigation */}
       <Navigation
         activeSection={activeSection}
         onNavigate={scrollToSection}
-        registeredCount={registeredActivities.length}
-        onOpenMyRegistrations={() => setIsMyRegistrationsOpen(true)}
       />
 
       {/* Main Content Viewport — SharePoint-style home canvas */}
-      <main className="sp-home flex-1 lg:pl-[60px]">
+      <main className="sp-home flex-1 ">
         <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
           {isIdePage ? <>
-            <a href="/" onClick={(event) => { event.preventDefault(); scrollToSection('inicio'); }} className="mb-4 inline-block text-sm text-[#5B3DE0] hover:underline">← Página inicial</a>
             <IdePracticesSection />
           </> : <>
           <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_320px] xl:items-start">
@@ -356,13 +317,6 @@ export default function App() {
         onClose={() => setIsSharePointModalOpen(false)}
       />
 
-      {/* My Registrations Modal */}
-      <MyRegistrationsModal
-        isOpen={isMyRegistrationsOpen}
-        onClose={() => setIsMyRegistrationsOpen(false)}
-        registeredActivities={registeredActivities}
-        onUnregister={handleUnregisterActivity}
-      />
 
     </div>
   );
