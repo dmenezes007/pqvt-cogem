@@ -1,3 +1,12 @@
 {
-  "rewrites": [{ "source": "/praticas-ide", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/praticas-ide",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ambientacao",
+      "destination": "/index.html"
+    }
+  ]
 }
