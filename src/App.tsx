@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { AmbientacaoSection } from './components/AmbientacaoSection';
+import { AmbientacaoAnalytics } from './components/AmbientacaoAnalytics';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { PillarsSection } from './components/PillarsSection';
@@ -172,7 +173,7 @@ export default function App() {
       {/* Main Content Viewport — SharePoint-style home canvas */}
       <main className="sp-home flex-1 ">
         <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
-          {isAmbientacaoPage ? <AmbientacaoSection /> : isIdePage ? <>
+          {isAmbientacaoPage ? <div className="space-y-5"><AmbientacaoSection /><AmbientacaoAnalytics /></div> : isIdePage ? <>
             <IdePracticesSection />
             <IdeAdherenceSection />
           </> : <>
