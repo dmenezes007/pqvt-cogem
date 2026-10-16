@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Home, CalendarDays, HeartHandshake, Newspaper, BookOpen, Users, BarChart3, Info, Menu, X, Ticket, ChevronDown } from 'lucide-react';
+import { Home, CalendarDays, HeartHandshake, Newspaper, BookOpen, Users, BarChart3, Info, Workflow, Menu, X, Ticket, ChevronDown } from 'lucide-react';
 
 interface NavigationProps {
   activeSection: string;
@@ -19,6 +19,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
     { id: 'comunidade', label: 'Comunidades', icon: Users },
     { id: 'indicadores', label: 'Indicadores', icon: BarChart3 },
     { id: 'praticas-ide', label: 'Práticas IDE', icon: BookOpen },
+    { id: 'ambientacao', label: 'Ambientação', icon: Workflow },
     { id: 'sobre', label: 'Sobre o PQVT', icon: Info },
   ];
 
