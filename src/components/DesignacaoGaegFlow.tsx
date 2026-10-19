@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Info,Maximize2,RotateCcw,Workflow} from 'lucide-react';
+import {Info,RotateCcw,Workflow} from 'lucide-react';
 type Node={id:string;x:number;y:number;w?:number;h?:number;label:string;lane:string;kind?:'start'|'message'|'end'|'gateway'|'parallel'|'sub';note:string};
 const nodes:Node[]=[
 {id:'inicio',x:85,y:180,label:'Início',lane:'Triagem',kind:'start',note:'Início do procedimento de designação de GAEG.'},
@@ -34,31 +34,65 @@ const edges:[string,string,string?][]=[
 ['inicio','providencia'],['providencia','juncao'],['portariaRecebida','juncao'],['juncao','email'],['email','bifurca'],['bifurca','servidor'],['servidor','solicitarLogin','Não'],['servidor','unir','Sim'],['solicitarLogin','aprovacao'],['aprovacao','mensagemCse'],['mensagemCse','aprovar'],['aprovar','criarLogin'],['criarLogin','unir'],['bifurca','mensagemPortaria'],['mensagemPortaria','paraleloPortaria'],['paraleloPortaria','elaborar'],['paraleloPortaria','inserir'],['elaborar','juntar'],['inserir','juntar'],['juntar','publicar'],['publicar','eventoPublicacao'],['eventoPublicacao','anexar'],['anexar','unir'],['unir','termo'],['termo','pedirAssinatura','Sim'],['termo','encaminhar','Não'],['pedirAssinatura','assinar'],['assinar','conferir'],['conferir','encaminhar'],['encaminhar','fim']
 ];
 const lookup=Object.fromEntries(nodes.map(n=>[n.id,n])) as Record<string,Node>;
-function position(n:Node){return {x:n.x+(n.w||0)/2,y:n.y+(n.h||0)/2}}
-function route(a:Node,b:Node){const A=position(a),B=position(b);const ar=(a.w||0)/2+18,br=(b.w||0)/2+18;const dX=B.x-A.x,dY=B.y-A.y;
- if(Math.abs(dY)<24)return `M ${A.x+ar} ${A.y} H ${B.x-br}`;
- if(Math.abs(dX)<65)return `M ${A.x} ${A.y+((a.h||0)/2+18)*Math.sign(dY)} V ${B.y-((b.h||0)/2+18)*Math.sign(dY)}`;
- const sx=A.x+ar*Math.sign(dX),ex=B.x-br*Math.sign(dX),mid=(sx+ex)/2;
- return `M ${sx} ${A.y} H ${mid} V ${B.y} H ${ex}`;
+function bounds(n:Node) { const w=n.w??34,h=n.h??34; return {cx:n.x+w/2,cy:n.y+h/2,l:n.x,r:n.x+w,t:n.y,b:n.y+h}; }
+type Side='left'|'right'|'top'|'bottom';
+function point(n:Node,s:Side) { const b=bounds(n);return s==='left'?[b.l,b.cy]:s==='right'?[b.r,b.cy]:s==='top'?[b.cx,b.t]:[b.cx,b.b]; }
+const specific:Record<string,[Side,Side,number?]>={
+ 'providencia:juncao':['right','top',307], 'portariaRecebida:juncao':['bottom','left',365],
+ 'juncao:email':['bottom','top'], 'email:bifurca':['right','left'], 'bifurca:servidor':['top','bottom'],
+ 'servidor:solicitarLogin':['right','left'], 'solicitarLogin:aprovacao':['top','bottom'],
+ 'aprovacao:mensagemCse':['right','top',762], 'mensagemCse:aprovar':['right','left'],
+ 'aprovar:criarLogin':['top','left',955], 'criarLogin:unir':['right','top',1100],
+ 'bifurca:mensagemPortaria':['bottom','left',578], 'mensagemPortaria:paraleloPortaria':['right','left'],
+ 'paraleloPortaria:elaborar':['right','left'], 'paraleloPortaria:inserir':['bottom','left',661],
+ 'elaborar:juntar':['right','top',810], 'inserir:juntar':['right','bottom',808],
+ 'juntar:publicar':['right','left'], 'publicar:eventoPublicacao':['bottom','left',984],
+ 'eventoPublicacao:anexar':['right','left'], 'anexar:unir':['top','bottom'],
+ 'unir:termo':['right','left'], 'termo:pedirAssinatura':['bottom','top'],
+ 'termo:encaminhar':['right','top',1388], 'pedirAssinatura:assinar':['bottom','top'],
+ 'assinar:conferir':['right','bottom',1377], 'conferir:encaminhar':['top','bottom'],
+ 'encaminhar:fim':['right','left'],
+ 'servidor:unir':['right','left',1025]
+};
+function route(a:Node,b:Node) {
+ const A=bounds(a),B=bounds(b);
+ const key=a.id+':'+b.id;
+ const inferred:[Side,Side]=Math.abs(B.cx-A.cx)>=Math.abs(B.cy-A.cy)?(B.cx>=A.cx?['right','left']:['left','right']):(B.cy>=A.cy?['bottom','top']:['top','bottom']);
+ const [from,to,bend]=specific[key]??inferred;
+ const [sx,sy]=point(a,from),[ex,ey]=point(b,to);
+ let coords:number[][]=[[sx,sy]];
+ if(sx!==ex && sy!==ey){
+  if(from==='top'||from==='bottom') {const mid=bend??((sy+ey)/2);coords.push([sx,mid],[ex,mid]);}
+  else if(to==='top'||to==='bottom') {const mid=bend??((sx+ex)/2);coords.push([mid,sy],[mid,ey]);}
+  else {const mid=bend??((sx+ex)/2);coords.push([mid,sy],[mid,ey]);}
+ }
+ coords.push([ex,ey]);
+ const compact=coords.filter((p,i)=>i===0||p[0]!==coords[i-1][0]||p[1]!==coords[i-1][1]);
+ return 'M '+compact.map(p=>p.join(' ')).join(' L ');
+}
+function wrapLabel(label:string,width:number):string[] {
+ const max=Math.max(10,Math.floor(width/7));const words=label.split(' ');const lines:string[]=[];let line='';
+ for(const word of words){ if((line+' '+word).trim().length>max && line){lines.push(line);line=word;}else line=(line+' '+word).trim();}
+ if(line)lines.push(line);return lines;
 }
 export const DesignacaoGaegFlow:React.FC=()=>{
  const [selected,setSelected]=useState('email');
  const [hover,setHover]=useState<string|null>(null);
- const [expanded,setExpanded]=useState(false);
  const focus=lookup[selected];
  return <section aria-label="Fluxo de Designação de GAEG" className="rounded-xl border border-[#E1DFE5] bg-white p-4 sm:p-5">
-  <div className="mb-3 flex flex-wrap items-center justify-between gap-3"><div><div className="sp-section-label">Fluxo interativo · Processo de embarque</div><h3 className="mt-1 text-lg font-bold text-[#17151D]">Designação de GAEG</h3><p className="mt-1 text-xs text-[#6F6B75]">Representação navegável do fluxo fornecido, com atividades por responsável, decisões e eventos.</p></div><div className="flex gap-2"><button onClick={()=>setSelected('email')} className="rounded-md border border-[#E1DFE5] px-3 py-2 text-xs"><RotateCcw size={14} className="inline"/> Reiniciar foco</button><button onClick={()=>setExpanded(!expanded)} className="rounded-md border border-[#D3C7FA] bg-[#F0ECFF] px-3 py-2 text-xs text-[#493290]"><Maximize2 size={14} className="inline"/> {expanded?'Altura normal':'Ampliar'}</button></div></div>
-  <div className="overflow-auto rounded-xl border border-[#E1DFE5] bg-[#FCFCFD]" style={{maxHeight:expanded?900:560}}>
-   <svg viewBox="0 0 1590 910" style={{minWidth:1100,width:'100%',height:'auto'}} role="group" aria-label="Diagrama interativo de designação de GAEG, use Tab para selecionar atividades">
+  <div className="mb-3 flex flex-wrap items-center justify-between gap-3"><div><div className="sp-section-label">Fluxo interativo · Processo de embarque</div><h3 className="mt-1 text-lg font-bold text-[#17151D]">Designação de GAEG</h3><p className="mt-1 text-xs text-[#6F6B75]">Representação navegável do fluxo fornecido, com atividades por responsável, decisões e eventos.</p></div><div className="flex gap-2"><button onClick={()=>setSelected('email')} className="rounded-md border border-[#E1DFE5] px-3 py-2 text-xs"><RotateCcw size={14} className="inline"/> Reiniciar foco</button></div></div>
+  <div className="overflow-auto rounded-xl border border-[#E1DFE5] bg-[#FCFCFD]" >
+   <svg viewBox="0 0 1590 910" style={{minWidth:1250,width:'100%',height:'auto'}} role="group" aria-label="Diagrama interativo de designação de GAEG, use Tab para selecionar atividades">
     <defs><marker id="gaeg-arrow" orient="auto" markerWidth="7" markerHeight="7" refX="6" refY="3"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#65616C" strokeWidth="1.2"/></marker></defs>
     {([{y:0,h:125,label:'CSE'},{y:125,h:215,label:'Triagem'},{y:340,h:440,label:'Executor'},{y:780,h:130,label:'Servidor'}] as const).map((l,i)=><g key={l.label}><rect x="0" y={l.y} width="1590" height={l.h} fill={i%2?'#F9F8FB':'#FFFFFF'} stroke="#D5D1DA"/><rect x="0" y={l.y} width="42" height={l.h} fill="#F0ECF8" stroke="#D5D1DA"/><text x="24" y={l.y+l.h/2} textAnchor="middle" transform={`rotate(-90 24 ${l.y+l.h/2})`} fontSize="14" fontWeight="700" fill="#55505C">{l.label}</text></g>)}
-    {edges.map(([from,to,label],i)=>{const a=lookup[from],b=lookup[to];return <g key={i}><path d={route(a,b)} fill="none" stroke="#77717F" strokeWidth="1.6" markerEnd="url(#gaeg-arrow)"/>{label&&<text x={(position(a).x+position(b).x)/2} y={(position(a).y+position(b).y)/2-7} fill="#4F4A57" fontSize="12" fontWeight="700">{label}</text>}</g>})}
+    {edges.map(([from,to,label],i)=>{const a=lookup[from],b=lookup[to];return <g key={i}><path d={route(a,b)} fill="none" stroke="#77717F" strokeWidth="1.6" strokeLinejoin="round" markerEnd="url(#gaeg-arrow)"/>{label&&<text x={(position(a).x+position(b).x)/2} y={(position(a).y+position(b).y)/2-7} fill="#4F4A57" fontSize="12" fontWeight="700">{label}</text>}</g>})}
     {nodes.map(n=>{const x=n.x,y=n.y,w=n.w||34,h=n.h||34,active=selected===n.id,over=hover===n.id,isCircle=['start','end','message'].includes(n.kind||'');
      return <g key={n.id} role="button" tabIndex={0} aria-label={n.label+' — '+n.lane} onClick={()=>setSelected(n.id)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setSelected(n.id)}}} onMouseEnter={()=>setHover(n.id)} onMouseLeave={()=>setHover(null)} style={{cursor:'pointer',outline:'none'}}>
        {isCircle?<circle cx={x+17} cy={y+17} r={n.kind==='message'?15:16} fill={n.kind==='end'?'#FFE9E9':n.kind==='start'?'#EAF8DA':'#FFF9DF'} stroke={active?'#6D4AFF':n.kind==='end'?'#BB1E37':'#6A9E25'} strokeWidth={active?4:2.2}/>:n.kind==='gateway'||n.kind==='parallel'?<rect x={x+4} y={y+4} width="26" height="26" transform={`rotate(45 ${x+17} ${y+17})`} fill="#FFFADB" stroke={active?'#6D4AFF':'#B4A400'} strokeWidth={active?3:2}/>:<rect x={x} y={y} width={w} height={h} rx="8" fill={active?'#F0ECFF':n.id==='email'||n.id==='inserir'?'#FFFDE2':'#F3F7FF'} stroke={active?'#6D4AFF':'#147DB0'} strokeWidth={active?3:1.7}/>}
        {n.kind==='parallel'&&<text x={x+17} y={y+24} textAnchor="middle" fontSize="30" fontWeight="800" fill="#AFA000">+</text>}
        {n.kind==='message'&&<text x={x+17} y={y+23} textAnchor="middle" fontSize="19" fill="#8E842B">✉</text>}
-       {(n.w||n.kind==='gateway')&&<text x={x+w/2} y={n.kind==='gateway'?y+52:y+h/2-(n.label.split(' ').length>4?7:0)} textAnchor="middle" fontSize="12" fontWeight={active?700:500} fill="#2B2930">{n.label.length>24&&n.w?<><tspan x={x+w/2} dy="-7">{n.label.substring(0,Math.ceil(n.label.length/2))}</tspan><tspan x={x+w/2} dy="15">{n.label.substring(Math.ceil(n.label.length/2))}</tspan></>:n.kind==='gateway'?'◇':n.label}</text>}
+       {n.w&&<text x={x+w/2} y={y+h/2} textAnchor="middle" dominantBaseline="middle" fontSize="11.5" fontWeight={active?700:500} fill="#2B2930">{wrapLabel(n.label,w-12).slice(0,5).map((line,k,lines)=><tspan key={k} x={x+w/2} dy={k===0?-(lines.length-1)*7:14}>{line}</tspan>)}</text>}
+
        {(over||active)&&<rect x={x-3} y={y-3} width={w+6} height={h+6} rx="9" stroke="#6D4AFF" strokeWidth="1.5" strokeDasharray="3 3" fill="none"/>}
        <title>{n.label} | {n.lane}: {n.note}</title>
      </g>})}
