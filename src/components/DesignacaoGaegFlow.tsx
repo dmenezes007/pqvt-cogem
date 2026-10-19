@@ -38,38 +38,55 @@ function position(n:Node){const b=bounds(n);return {x:b.cx,y:b.cy};}
 function bounds(n:Node) { const w=n.w??34,h=n.h??34; return {cx:n.x+w/2,cy:n.y+h/2,l:n.x,r:n.x+w,t:n.y,b:n.y+h}; }
 type Side='left'|'right'|'top'|'bottom';
 function point(n:Node,s:Side) { const b=bounds(n);return s==='left'?[b.l,b.cy]:s==='right'?[b.r,b.cy]:s==='top'?[b.cx,b.t]:[b.cx,b.b]; }
-const specific:Record<string,[Side,Side,number?]>={
- 'providencia:juncao':['right','top',307], 'portariaRecebida:juncao':['bottom','left',365],
- 'juncao:email':['bottom','top'], 'email:bifurca':['right','left'], 'bifurca:servidor':['top','bottom'],
- 'servidor:solicitarLogin':['right','left'], 'solicitarLogin:aprovacao':['top','bottom'],
- 'aprovacao:mensagemCse':['right','top',762], 'mensagemCse:aprovar':['right','left'],
- 'aprovar:criarLogin':['top','left',955], 'criarLogin:unir':['right','top',1100],
- 'bifurca:mensagemPortaria':['bottom','left',578], 'mensagemPortaria:paraleloPortaria':['right','left'],
- 'paraleloPortaria:elaborar':['right','left'], 'paraleloPortaria:inserir':['bottom','left',661],
- 'elaborar:juntar':['right','top',810], 'inserir:juntar':['right','bottom',808],
- 'juntar:publicar':['right','left'], 'publicar:eventoPublicacao':['bottom','left',984],
- 'eventoPublicacao:anexar':['right','left'], 'anexar:unir':['top','bottom'],
- 'unir:termo':['right','left'], 'termo:pedirAssinatura':['bottom','top'],
- 'termo:encaminhar':['right','top',1388], 'pedirAssinatura:assinar':['bottom','top'],
- 'assinar:conferir':['right','bottom',1377], 'conferir:encaminhar':['top','bottom'],
- 'encaminhar:fim':['right','left'],
- 'servidor:unir':['right','left',1025]
+// Explicit channel routing: all joins use exterior ports and orthogonal segments.
+// Intermediate waypoints are kept outside task rectangles to prevent visual collisions.
+const channels:Record<string,{from:Side;to:Side;via?:number[][];label?:[number,number]}>={
+'inicio:providencia':{from:'right',to:'left'},
+'providencia:juncao':{from:'right',to:'top',via:[[306,193],[306,358],[355,358]]},
+'portariaRecebida:juncao':{from:'bottom',to:'left',via:[[223.5,360],[318,360],[318,401]]},
+'juncao:email':{from:'bottom',to:'top',via:[[355,468],[387,468]]},
+'email:bifurca':{from:'right',to:'left',via:[[486,537],[486,527]]},
+'bifurca:servidor':{from:'top',to:'bottom'},
+'servidor:solicitarLogin':{from:'right',to:'left',via:[[602,452],[602,383]],label:[614,409]},
+'servidor:unir':{from:'right',to:'left',via:[[587,452],[587,433],[1100,433]],label:[820,424]},
+'solicitarLogin:aprovacao':{from:'top',to:'bottom'},
+'aprovacao:mensagemCse':{from:'right',to:'top',via:[[768,71],[768,396]]},
+'mensagemCse:aprovar':{from:'right',to:'left',via:[[817,430],[817,383]]},
+'aprovar:criarLogin':{from:'top',to:'left',via:[[898,134],[945,134],[945,71]]},
+'criarLogin:unir':{from:'right',to:'top',via:[[1085,71],[1085,418]]},
+'bifurca:mensagemPortaria':{from:'bottom',to:'top',via:[[552,573],[597,573]]},
+'mensagemPortaria:paraleloPortaria':{from:'right',to:'left'},
+'paraleloPortaria:elaborar':{from:'right',to:'left',via:[[672,597],[672,575]]},
+'paraleloPortaria:inserir':{from:'bottom',to:'left',via:[[634,709],[680,709],[680,645]]},
+'elaborar:juntar':{from:'right',to:'top',via:[[808,575],[808,568],[839,568]]},
+'inserir:juntar':{from:'right',to:'bottom',via:[[808,645],[808,634],[839,634]]},
+'juntar:publicar':{from:'right',to:'left'},
+'publicar:eventoPublicacao':{from:'bottom',to:'left',via:[[916,626],[974,626],[974,597]]},
+'eventoPublicacao:anexar':{from:'right',to:'left',via:[[1037,597],[1037,579]]},
+'anexar:unir':{from:'top',to:'bottom',via:[[1100,498],[1129,498]]},
+'unir:termo':{from:'right',to:'left'},
+'termo:pedirAssinatura':{from:'bottom',to:'top'},
+'termo:encaminhar':{from:'right',to:'top',via:[[1370,452],[1370,520],[1462,520]],label:[1392,444]},
+'pedirAssinatura:assinar':{from:'bottom',to:'top'},
+'assinar:conferir':{from:'right',to:'bottom',via:[[1366,835],[1377,835],[1377,735]]},
+'conferir:encaminhar':{from:'top',to:'bottom',via:[[1377,633],[1462,633]]},
+'encaminhar:fim':{from:'right',to:'left'}
 };
 function route(a:Node,b:Node) {
  const A=bounds(a),B=bounds(b);
  const key=a.id+':'+b.id;
  const inferred:[Side,Side]=Math.abs(B.cx-A.cx)>=Math.abs(B.cy-A.cy)?(B.cx>=A.cx?['right','left']:['left','right']):(B.cy>=A.cy?['bottom','top']:['top','bottom']);
- const [from,to,bend]=specific[key]??inferred;
- const [sx,sy]=point(a,from),[ex,ey]=point(b,to);
- let coords:number[][]=[[sx,sy]];
- if(sx!==ex && sy!==ey){
-  if(from==='top'||from==='bottom') {const mid=bend??((sy+ey)/2);coords.push([sx,mid],[ex,mid]);}
-  else if(to==='top'||to==='bottom') {const mid=bend??((sx+ex)/2);coords.push([mid,sy],[mid,ey]);}
-  else {const mid=bend??((sx+ex)/2);coords.push([mid,sy],[mid,ey]);}
+ const conf=channels[key];
+ const from=conf?.from??inferred[0],to=conf?.to??inferred[1];
+ const start=point(a,from),end=point(b,to);
+ const stops=[start,...(conf?.via??[]),end];
+ const orthogonal:number[][]=[];
+ for (const p of stops) {
+  const last=orthogonal[orthogonal.length-1];
+  if(last && last[0]!==p[0] && last[1]!==p[1]) orthogonal.push([p[0],last[1]]);
+  orthogonal.push(p);
  }
- coords.push([ex,ey]);
- const compact=coords.filter((p,i)=>i===0||p[0]!==coords[i-1][0]||p[1]!==coords[i-1][1]);
- return 'M '+compact.map(p=>p.join(' ')).join(' L ');
+ return 'M '+orthogonal.map(p=>p.join(' ')).join(' L ');
 }
 function wrapLabel(label:string,width:number):string[] {
  const max=Math.max(10,Math.floor(width/7));const words=label.split(' ');const lines:string[]=[];let line='';
@@ -86,7 +103,7 @@ export const DesignacaoGaegFlow:React.FC=()=>{
    <svg viewBox="0 0 1590 910" style={{minWidth:1250,width:'100%',height:'auto'}} role="group" aria-label="Diagrama interativo de designação de GAEG, use Tab para selecionar atividades">
     <defs><marker id="gaeg-arrow" orient="auto" markerWidth="7" markerHeight="7" refX="6" refY="3"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#65616C" strokeWidth="1.2"/></marker></defs>
     {([{y:0,h:125,label:'CSE'},{y:125,h:215,label:'Triagem'},{y:340,h:440,label:'Executor'},{y:780,h:130,label:'Servidor'}] as const).map((l,i)=><g key={l.label}><rect x="0" y={l.y} width="1590" height={l.h} fill={i%2?'#F9F8FB':'#FFFFFF'} stroke="#D5D1DA"/><rect x="0" y={l.y} width="42" height={l.h} fill="#F0ECF8" stroke="#D5D1DA"/><text x="24" y={l.y+l.h/2} textAnchor="middle" transform={`rotate(-90 24 ${l.y+l.h/2})`} fontSize="14" fontWeight="700" fill="#55505C">{l.label}</text></g>)}
-    {edges.map(([from,to,label],i)=>{const a=lookup[from],b=lookup[to];return <g key={i}><path d={route(a,b)} fill="none" stroke="#77717F" strokeWidth="1.6" strokeLinejoin="round" markerEnd="url(#gaeg-arrow)"/>{label&&<text x={(position(a).x+position(b).x)/2} y={(position(a).y+position(b).y)/2-7} fill="#4F4A57" fontSize="12" fontWeight="700">{label}</text>}</g>})}
+    {edges.map(([from,to,label],i)=>{const a=lookup[from],b=lookup[to];return <g key={i}><path d={route(a,b)} fill="none" stroke="#77717F" strokeWidth="1.6" strokeLinejoin="round" markerEnd="url(#gaeg-arrow)"/>{label&&<text x={channels[from+':'+to]?.label?.[0] ?? (position(a).x+position(b).x)/2} y={channels[from+':'+to]?.label?.[1] ?? (position(a).y+position(b).y)/2-7} fill="#4F4A57" fontSize="12" fontWeight="700">{label}</text>}</g>})}
     {nodes.map(n=>{const x=n.x,y=n.y,w=n.w||34,h=n.h||34,active=selected===n.id,over=hover===n.id,isCircle=['start','end','message'].includes(n.kind||'');
      return <g key={n.id} role="button" tabIndex={0} aria-label={n.label+' — '+n.lane} onClick={()=>setSelected(n.id)} onKeyDown={e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setSelected(n.id)}}} onMouseEnter={()=>setHover(n.id)} onMouseLeave={()=>setHover(null)} style={{cursor:'pointer',outline:'none'}}>
        {isCircle?<circle cx={x+17} cy={y+17} r={n.kind==='message'?15:16} fill={n.kind==='end'?'#FFE9E9':n.kind==='start'?'#EAF8DA':'#FFF9DF'} stroke={active?'#6D4AFF':n.kind==='end'?'#BB1E37':'#6A9E25'} strokeWidth={active?4:2.2}/>:n.kind==='gateway'||n.kind==='parallel'?<rect x={x+4} y={y+4} width="26" height="26" transform={`rotate(45 ${x+17} ${y+17})`} fill="#FFFADB" stroke={active?'#6D4AFF':'#B4A400'} strokeWidth={active?3:2}/>:<rect x={x} y={y} width={w} height={h} rx="8" fill={active?'#F0ECFF':n.id==='email'||n.id==='inserir'?'#FFFDE2':'#F3F7FF'} stroke={active?'#6D4AFF':'#147DB0'} strokeWidth={active?3:1.7}/>}
