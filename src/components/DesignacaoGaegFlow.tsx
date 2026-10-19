@@ -34,6 +34,7 @@ const edges:[string,string,string?][]=[
 ['inicio','providencia'],['providencia','juncao'],['portariaRecebida','juncao'],['juncao','email'],['email','bifurca'],['bifurca','servidor'],['servidor','solicitarLogin','Não'],['servidor','unir','Sim'],['solicitarLogin','aprovacao'],['aprovacao','mensagemCse'],['mensagemCse','aprovar'],['aprovar','criarLogin'],['criarLogin','unir'],['bifurca','mensagemPortaria'],['mensagemPortaria','paraleloPortaria'],['paraleloPortaria','elaborar'],['paraleloPortaria','inserir'],['elaborar','juntar'],['inserir','juntar'],['juntar','publicar'],['publicar','eventoPublicacao'],['eventoPublicacao','anexar'],['anexar','unir'],['unir','termo'],['termo','pedirAssinatura','Sim'],['termo','encaminhar','Não'],['pedirAssinatura','assinar'],['assinar','conferir'],['conferir','encaminhar'],['encaminhar','fim']
 ];
 const lookup=Object.fromEntries(nodes.map(n=>[n.id,n])) as Record<string,Node>;
+function position(n:Node){const b=bounds(n);return {x:b.cx,y:b.cy};}
 function bounds(n:Node) { const w=n.w??34,h=n.h??34; return {cx:n.x+w/2,cy:n.y+h/2,l:n.x,r:n.x+w,t:n.y,b:n.y+h}; }
 type Side='left'|'right'|'top'|'bottom';
 function point(n:Node,s:Side) { const b=bounds(n);return s==='left'?[b.l,b.cy]:s==='right'?[b.r,b.cy]:s==='top'?[b.cx,b.t]:[b.cx,b.b]; }
