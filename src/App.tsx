@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
+import { AmbientacaoSection } from './components/AmbientacaoSection';
+import { AmbientacaoV2 } from './components/AmbientacaoV2';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { PillarsSection } from './components/PillarsSection';
@@ -46,15 +48,18 @@ import { AlertCircle, CheckCircle, Info, UserCheck, ShieldAlert } from 'lucide-r
 
 export default function App() {
   const [isIdePage, setIsIdePage] = useState(() => window.location.pathname === '/praticas-ide');
+  const [isAmbientacaoPage, setIsAmbientacaoPage] = useState(() => window.location.pathname === '/ambientacao');
   useEffect(() => {
-    document.title = isIdePage ? 'Práticas IDE da Enap | PQVT · COGEM' : 'PQVT — Portal de Qualidade de Vida no Trabalho | COGEM Conecta · Enap';
-  }, [isIdePage]);
+    document.title = isAmbientacaoPage ? 'Jornada de Ambientação | PQVT · COGEM' : isIdePage ? 'Práticas IDE da Enap | PQVT · COGEM' : 'PQVT — Portal de Qualidade de Vida no Trabalho | COGEM Conecta · Enap';
+  }, [isIdePage, isAmbientacaoPage]);
   useEffect(() => {
     const syncPage = () => {
       if (window.location.hash === '#praticas-ide') window.history.replaceState(null, '', '/praticas-ide');
       const ide = window.location.pathname === '/praticas-ide';
       setIsIdePage(ide);
-      setActiveSection(ide ? 'praticas-ide' : window.location.hash.slice(1) || 'inicio');
+      const ambientacao = window.location.pathname === '/ambientacao';
+      setIsAmbientacaoPage(ambientacao);
+      setActiveSection(ambientacao ? 'ambientacao' : ide ? 'praticas-ide' : window.location.hash.slice(1) || 'inicio');
     };
     window.addEventListener('popstate', syncPage);
     window.addEventListener('hashchange', syncPage);
@@ -120,15 +125,24 @@ export default function App() {
   // Scroll to section helper
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
+    if (sectionId === 'ambientacao') {
+      window.history.pushState(null, '', '/ambientacao');
+      setIsAmbientacaoPage(true);
+      setIsIdePage(false);
+      window.scrollTo({ top: 0 });
+      return;
+    }
     if (sectionId === 'praticas-ide') {
+      setIsAmbientacaoPage(false);
       window.history.pushState(null, '', '/praticas-ide');
       setIsIdePage(true);
       window.scrollTo({ top: 0 });
       return;
     }
-    if (isIdePage) {
+    if (isIdePage || isAmbientacaoPage) {
       window.history.pushState(null, '', `/#${sectionId}`);
       setIsIdePage(false);
+      setIsAmbientacaoPage(false);
       requestAnimationFrame(() => document.getElementById(sectionId)?.scrollIntoView());
       return;
     }
@@ -159,7 +173,7 @@ export default function App() {
       {/* Main Content Viewport — SharePoint-style home canvas */}
       <main className="sp-home flex-1 ">
         <div className="mx-auto max-w-[1440px] px-4 py-5 sm:px-6 lg:px-8 lg:py-7">
-          {isIdePage ? <>
+          {isAmbientacaoPage ? <div className="space-y-5"><AmbientacaoSection /><AmbientacaoV2 /></div> : isIdePage ? <>
             <IdePracticesSection />
             <IdeAdherenceSection />
           </> : <>
